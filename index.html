@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VšĮ „Maišiagalos sportas“</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--surface:#f1f7f3;--ink:#13241a;--muted:#4f6657;--line:#d7e5db;
+  --green:#17803e;--green-d:#0f5a2b;--on-green:#ffffff;--hero:#e6f3ea;--disc:#cde7d7;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0f1a14;--surface:#16251c;--ink:#e8f2ec;--muted:#9bb2a4;--line:#27402f;--green:#5cbf88;--green-d:#8bd8ac;--on-green:#0f1a14;--hero:#152a1e;--disc:#2c5c40;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0f1a14;--surface:#16251c;--ink:#e8f2ec;--muted:#9bb2a4;--line:#27402f;--green:#5cbf88;--green-d:#8bd8ac;--on-green:#0f1a14;--hero:#152a1e;--disc:#2c5c40;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:800;text-decoration:none;font-size:18px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.mark{width:19px;height:34px;flex:none;background:var(--green);-webkit-mask:url(images/logo-zenklas.png) center/contain no-repeat;mask:url(images/logo-zenklas.png) center/contain no-repeat}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:15px;font-weight:500;padding:6px 10px;border-radius:999px;color:var(--muted);flex:none}
+nav a:hover{background:var(--surface);color:var(--ink)}
+header .wrap{max-width:1700px}
+.search-btn{order:2;flex:none;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--green-d);cursor:pointer}
+.search-btn:hover{background:var(--surface)}
+.search-btn svg{width:20px;height:20px}
+@media (max-width:1700px){.search-btn{order:1;margin-left:auto}nav{order:2;width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}nav::-webkit-scrollbar{display:none}html{scroll-padding-top:calc(124px + env(safe-area-inset-top,0px))}}
+.hero{background:var(--hero);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end;padding-top:72px;padding-bottom:0}.hero .copy{padding-bottom:88px}
+.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.04;letter-spacing:-.03em;font-weight:800;margin:0 0 20px;max-width:14ch;color:var(--green-d)}
+.hero p{max-width:52ch;font-size:19px;color:var(--muted);margin:0 0 32px}
+.stage{position:relative;width:100%;max-width:460px;justify-self:center;aspect-ratio:1/1}.stage .disc{position:absolute;left:6%;right:6%;top:8%;aspect-ratio:1/1;border-radius:50%;background:var(--disc)}.stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.stage circle{fill:none;stroke:var(--green);stroke-width:.4;opacity:.55}.stage img{position:absolute;left:0;bottom:0;width:100%;height:auto;display:block}
+.btn{display:inline-block;background:var(--green);color:var(--on-green);text-decoration:none;font-weight:700;padding:13px 24px;border-radius:999px}
+.btn:hover{background:var(--green-d)}
+.btn.ghost{background:transparent;color:var(--green-d);border:2px solid var(--green);margin-left:8px}
+.btn.ghost:hover{background:var(--surface)}
+section{padding:80px 0}
+section.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;margin:0 0 12px;color:var(--green-d)}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 40px}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.quote{margin:28px 0 0;padding:4px 0 4px 20px;border-left:3px solid var(--green);font-size:20px;line-height:1.5;font-weight:500;color:var(--green-d);max-width:44ch}
+.about-cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.social{display:flex;gap:10px}
+.social a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px 10px 12px;border:2px solid var(--green);border-radius:999px;color:var(--green-d);text-decoration:none;font-weight:700;font-size:15px;line-height:1}
+.social a:hover{background:var(--surface)}
+.social svg{width:20px;height:20px;flex:none}
+.photo{margin:0}.photo img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.teams-head{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:8px}
+.teams-head .lead{margin-bottom:24px}
+.spike{display:block;height:310px;width:auto;margin-right:12px}
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.team{display:flex;flex-direction:column;align-items:flex-start}
+.team img{width:72px;height:72px;border-radius:14px;margin-bottom:16px;display:block}
+.team img.round{border-radius:50%}
+.team p{flex:1}
+.btn.sm{padding:9px 22px;font-size:15px;margin-top:18px;border:0;font-family:inherit;line-height:1.4;cursor:pointer}
+body:has(dialog[open]){overflow:hidden}
+dialog.team-dialog{border:1px solid var(--line);border-radius:18px;padding:0;background:var(--bg);color:var(--ink);width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px)}
+dialog.team-dialog::backdrop{background:rgba(10,25,16,.55)}
+.dlg-head{display:flex;align-items:center;gap:16px;padding:24px 24px 0}
+.dlg-head img{width:72px;height:72px;border-radius:14px;flex:none}
+.dlg-head img.round{border-radius:50%}
+.dlg-head h3{margin:0;font-size:24px;line-height:1.2;color:var(--green-d)}
+.dlg-head p{margin:2px 0 0;color:var(--muted);font-size:15px}
+.dlg-x{margin-left:auto;align-self:flex-start;flex:none;font:inherit;font-size:26px;line-height:1;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.dlg-x:hover{background:var(--surface)}
+.dlg-body{padding:20px 24px 28px;display:grid;gap:22px}
+.dlg-photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;background:var(--surface)}
+.dlg-body h4{margin:0 0 6px;font-size:17px;color:var(--green-d)}
+.dlg-body p{margin:0;color:var(--muted)}
+.dlg-body dl{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;margin:0}
+.ach{list-style:none;margin:0;padding:0;display:grid;gap:10px}.ach li{display:grid;grid-template-columns:96px 1fr;gap:14px;line-height:1.45}.ach b{color:var(--green-d)}.ach span{color:var(--muted)}
+.dlg-body dd a{color:var(--green-d)}
+.dlg-body dt{color:var(--muted)}.dlg-body dd{margin:0;font-weight:500}
+dialog.search-dialog{margin:8vh auto auto}
+.srch-head{display:flex;align-items:center;gap:10px;padding:12px 14px 12px 18px;border-bottom:1px solid var(--line)}
+.srch-head>svg{width:20px;height:20px;flex:none;color:var(--muted)}
+.srch-head input{flex:1;min-width:0;font:inherit;font-size:18px;border:0;background:transparent;color:var(--ink);outline:none;padding:8px 0}
+.srch-head .dlg-x{margin-left:0;align-self:center}
+.srch-res{max-height:min(60vh,460px);overflow-y:auto;padding:8px 10px 14px}
+.srch-res .hint{color:var(--muted);font-size:14px;margin:8px 10px}
+.srch-item{display:block;width:100%;text-align:left;font:inherit;background:transparent;color:var(--ink);border:0;border-radius:10px;padding:10px 12px;cursor:pointer}
+.srch-item:hover,.srch-item:focus-visible{background:var(--surface)}
+.srch-item b{display:block;font-size:16px;color:var(--green-d)}
+.srch-item small{display:block;color:var(--muted);font-size:13px}
+.srch-item span{display:block;color:var(--muted);font-size:14px;line-height:1.4;margin-top:2px}
+.srch-item mark{background:var(--hero);color:inherit;border-radius:3px;padding:0 2px}
+.support{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.support .card{padding:26px}
+.support dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:14px 0 0}
+.support dt{color:var(--muted)}.support dd{margin:0;font-weight:500}
+.support .btn{margin-top:20px}
+.cal-bar{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.cal-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cal-title{margin:0;font-size:22px;min-width:11ch;text-align:center;color:var(--green-d)}
+.cal-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--green-d);font:inherit;font-size:26px;line-height:1;cursor:pointer;padding:0 0 3px}
+.cal-today{font:inherit;font-size:15px;font-weight:700;color:var(--green-d);background:transparent;border:2px solid var(--green);border-radius:999px;padding:7px 16px;cursor:pointer}
+.cal-btn:hover,.cal-today:hover{background:var(--surface)}
+.cal-find{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
+.cal-find input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.cal-found{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:15px}
+.cal-found[hidden]{display:none}
+.cal-link{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:5px 12px;color:#fff;background:var(--ev);cursor:pointer}
+.cal-clear{margin-left:auto;font:inherit;font-size:14px;background:transparent;border:0;color:var(--green-d);text-decoration:underline;cursor:pointer}
+.cal-head,.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.cal-head{background:var(--green);color:var(--on-green);border-radius:12px 12px 0 0;font-size:14px;font-weight:700;text-align:center}
+.cal-head span{padding:10px 4px}.cal-head i{font-style:normal}.cal-head .s{display:none}
+.cal-grid{border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.cal-day{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:108px;padding:6px;display:flex;flex-direction:column;gap:4px;background:var(--bg);min-width:0}
+.cal-day.out{background:var(--surface)}.cal-day.out .cal-n{color:var(--muted);opacity:.6}
+.cal-n{font-size:15px;font-weight:700;width:26px;height:26px;display:grid;place-items:center;border-radius:50%}
+.cal-day.today .cal-n{background:var(--green);color:var(--on-green)}
+.cal-day.sel{outline:3px solid var(--green);outline-offset:-3px}
+.cal-day.has{cursor:pointer}
+.ev{font:inherit;font-size:13px;font-weight:700;line-height:1.25;text-align:left;color:#fff;background:var(--ev);border:0;border-radius:6px;padding:4px 7px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;width:100%}
+.ev:hover{filter:brightness(1.12)}
+.cal-legend{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:16px 0 0;padding:0;font-size:14px;color:var(--muted)}
+.cal-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--ev);margin-right:6px;vertical-align:-1px}
+.cal-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:8px}
+.cal-list button{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:baseline;width:100%;text-align:left;font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-left:6px solid var(--ev);border-radius:10px;padding:10px 14px;cursor:pointer}
+.cal-list button:hover{background:var(--surface)}
+.cal-list b{color:var(--green-d)}
+.cal-empty{color:var(--muted);font-size:15px}
+.evtag{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:var(--ev);padding:2px 10px;border-radius:999px;margin-bottom:10px}
+.evt{margin:0 0 10px;font-size:22px;line-height:1.25;color:var(--green-d)}
+.evx dl{margin:0 0 12px}
+.evbtn{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.evbtn .btn{margin-top:0}.evx.sep{border-top:1px solid var(--line);padding-top:20px}
+@media (max-width:720px){
+  .cal-head .f{display:none}.cal-head .s{display:inline}.cal-head span{padding:8px 0}
+  .cal-day{min-height:58px;padding:4px;align-items:center}
+  .ev{font-size:0;height:6px;padding:0;border-radius:3px}
+  .cal-title{font-size:19px;min-width:0}
+}
+.cat-find{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted);margin-bottom:16px;max-width:380px}
+.cat-find input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.abc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.abc button{min-width:38px;height:38px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font:inherit;font-weight:700;color:var(--green-d);cursor:pointer}
+.abc button:hover{background:var(--surface)}
+.abc button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.abc button.empty{opacity:.5}.abc button.empty[aria-pressed="true"]{opacity:1}
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:32px}
+.more .btn{display:inline-flex;align-items:center;gap:8px}
+.more .btn svg{width:20px;height:20px;flex:none}
+.more p{margin:0;color:var(--muted)}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.gal-grid .cal-empty{grid-column:1/-1}
+.gcard{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.gcard img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer}
+.gcard>div{padding:16px 18px 18px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.gcard h3{margin:0 0 4px}.gcard p{flex:1}
+dialog.gal-dialog{width:min(920px,calc(100vw - 32px))}
+.gal-dialog [hidden]{display:none!important}
+.gal-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.gal-thumbs button{padding:0;border:0;background:var(--surface);border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:1/1}
+.gal-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-view{position:relative;display:flex;align-items:center;justify-content:center;height:min(70vh,640px);margin-top:16px;background:#0b150f}
+.gal-view img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#13241a;font-size:28px;line-height:1;padding:0 0 3px;cursor:pointer}
+.gal-nav.prev{left:12px}.gal-nav.next{right:12px}
+.gal-back{position:absolute;left:12px;bottom:12px;font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.92);color:#13241a;cursor:pointer}
+.gal-count{position:absolute;right:14px;bottom:18px;color:#fff;font-size:14px}
+.scard img{aspect-ratio:1/1}
+.svc-poster{display:block;width:100%;height:auto;border-radius:14px}
+.civic{display:grid;grid-template-columns:1.4fr .6fr;gap:24px 32px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:32px;margin-top:24px}
+.civic h3{margin:0 0 10px;font-size:24px;line-height:1.25;color:var(--green-d)}
+.civic p{margin:0 0 22px;color:var(--muted);max-width:56ch}
+.civic img{display:block;width:100%;max-width:260px;height:auto;justify-self:center}
+@media (max-width:720px){.civic{grid-template-columns:1fr;padding:24px}.civic img{max-width:200px;order:-1}}
+.gen{font-size:20px;font-weight:500;margin:0 0 12px}.gen a{color:var(--green-d)}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.pcard{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.pcard .ph{background:#fff;aspect-ratio:4/5;overflow:hidden}
+.pcard img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.pcard h3{margin:18px 20px 6px}.pcard p{margin:0 20px 14px;flex:1}
+.plinks{list-style:none;margin:0 20px 20px;padding:0;display:grid;gap:4px;font-size:15px;font-weight:500}.plinks a{color:var(--green-d);word-break:break-all}
+.clubs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.ccard{display:flex;flex-direction:column;align-items:center;text-align:center}
+.ccard .lg{background:#fff;border:1px solid var(--line);border-radius:12px;width:100%;aspect-ratio:1/1;display:grid;place-items:center;padding:12px;margin-bottom:14px}
+.ccard .lg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.ccard h3{font-size:17px;margin:0 0 4px;flex:1}
+#club-logo{object-fit:contain;background:#fff;border:1px solid var(--line)}
+.cmain{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 24px;margin:0 0 36px;max-width:560px}
+.cmain .ci{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--green);color:var(--on-green);flex:none}
+.cmain .ci svg{width:22px;height:22px}
+.cmain small{display:block;color:var(--muted);font-size:13px}
+.cmain a{font-size:20px;font-weight:700;color:var(--green-d);text-decoration:none;word-break:break-all}
+.cmain a:hover{text-decoration:underline}
+.people{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.pcard{border-radius:18px;transition:box-shadow .2s,transform .2s}
+.pcard:hover{box-shadow:0 12px 30px rgba(0,0,0,.1);transform:translateY(-3px)}
+.pcard .ph{aspect-ratio:1/1.1;border-bottom:1px solid var(--line)}
+.pcard img{object-position:50% 10%}
+.pcard h3{font-size:21px;margin:20px 22px 6px}
+.role{align-self:flex-start;margin:0 22px 12px;font-size:13px;font-weight:700;color:var(--green-d);background:var(--hero);padding:3px 11px;border-radius:999px}
+.pcard p{margin:0 22px 18px;font-size:14.5px;line-height:1.6}
+.plinks{margin:0 22px 22px;padding-top:14px;border-top:1px solid var(--line)}
+.plinks li{min-width:0}.plinks a{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:14.5px}
+.plinks a:hover{text-decoration:underline}
+.plinks svg{width:18px;height:18px;flex:none;color:var(--green)}
+.partner{display:flex;align-items:center;gap:20px;margin-top:32px;padding:16px 22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.partner:hover{border-color:var(--green);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.partner img{height:64px;width:auto;background:#fff;border-radius:10px;padding:6px 10px;flex:none}
+.partner b{display:block;font-size:18px;color:var(--green-d)}
+.partner small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{margin:0 0 6px;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--green-d);background:var(--hero);padding:2px 10px;border-radius:999px;margin-bottom:12px}
+.events{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.events li{display:grid;grid-template-columns:84px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.date{text-align:center;line-height:1.1}
+.date b{display:block;font-size:34px;color:var(--green-d)}
+.date span{font-size:14px;color:var(--muted)}
+.events h3{margin:0;font-size:19px}
+.events p{margin:2px 0 0;color:var(--muted);font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.chips button{font:inherit;font-size:15px;font-weight:500;cursor:pointer;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 16px}
+.chips button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.contact h3{margin:0 0 4px;font-size:15px;color:var(--muted);font-weight:500}
+.contact p{margin:0;font-size:18px;font-weight:500}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+@media (max-width:720px){
+  section{padding:56px 0}.hero .wrap{grid-template-columns:1fr;padding-top:48px}.hero .copy{padding-bottom:16px}.stage{max-width:340px}
+  .about{grid-template-columns:1fr;gap:32px}
+  .events li{grid-template-columns:64px 1fr}.events li .btn{grid-column:2;justify-self:start}
+  .btn.ghost{margin-left:0;margin-top:10px}
+  .teams-head{grid-template-columns:1fr;gap:0}.spike{height:250px;margin:0 auto 24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#pradzia"><span class="mark" aria-hidden="true"></span>Maišiagalos sportas</a>
+    <nav aria-label="Pagrindinis meniu">
+      <a href="#pradzia">Pradžia</a>
+      <a href="#apie">Apie mus</a>
+      <a href="#rinktines">Sportinės rinktinės</a>
+      <a href="#kalendorius">Veiklų kalendorius</a>
+      <a href="#katalogas">Veiklų katalogas</a>
+      <a href="#paslaugos">Paslaugos</a>
+      <a href="#socialine">Socialinė pilietinė veikla</a>
+      <a href="#kontaktai">Kontaktai</a>
+      <a href="#bureliai">Maišiagalos būreliai</a>
+      <a href="#parama">Parama</a>
+    </nav>
+    <button type="button" class="search-btn" id="search-btn" aria-label="Ieškoti svetainėje" title="Paieška"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+  </div>
+</header>
+
+<main>
+<div class="hero" id="pradzia">
+  <div class="wrap">
+    <div class="copy">
+      <h1>Judame kartu Maišiagaloje</h1>
+      <p>VšĮ „Maišiagalos sportas“ organizuoja sporto veiklas, rinktines ir renginius vaikams, jaunimui ir suaugusiesiems. Prisijunkite prie bendruomenės, kuriai sportas yra kasdienybė.</p>
+      <a class="btn" href="#katalogas">Peržiūrėti veiklas</a>
+      <a class="btn ghost" href="#kalendorius">Artimiausi renginiai</a>
+    </div>
+    <div class="stage">
+      <div class="disc"></div>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="52" r="49"/><circle cx="50" cy="52" r="55"/></svg>
+      <img src="images/maisiagalos-sporto-simbolis-juodoji-pantera-z.webp" alt="Maišiagalos sporto simbolis – juodoji pantera žaliais marškinėliais, mojuojanti ranka" width="620" height="611">
+    </div>
+  </div>
+</div>
+
+<section id="apie">
+  <div class="wrap about">
+    <div>
+      <h2>Apie mus</h2>
+      <p>VšĮ „Maišiagalos sportas“ siekia padaryti sportą prieinamą kiekvienam Maišiagalos ir apylinkių gyventojui. Dirbame su vaikais, jaunimu ir suaugusiaisiais, rengiame treniruotes, turnyrus ir bendruomenės šventes.</p>
+      <p>Mūsų misija – skatinti sveiką gyvenseną, komandinę dvasią ir pagarbą varžovams. Tikime, kad kiekvienas gali rasti sau tinkamą veiklą.</p>
+      <blockquote class="quote">Nuo senų laikų sportas simbolizuoja taiką ir vienybę. Nors varžybose pasitaiko emocingų akimirkų, galiausiai visi paspaudžia vieni kitiems rankas – mes suvienyti sporto.</blockquote>
+      <div class="about-cta">
+        <a class="btn" href="#kontaktai">Susipažink su mumis</a>
+        <div class="social">
+          <a href="https://www.facebook.com/groups/1352681309700929/" target="_blank" rel="noopener noreferrer" aria-label="Maišiagalos sportas Facebook grupė"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/maisiagalos_sportas" target="_blank" rel="noopener noreferrer" aria-label="Maišiagalos sportas Instagram paskyra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+        </div>
+      </div>
+    </div>
+    <figure class="photo"><img src="images/maisiagalos-sportas-komanda-zaliais-firminiai.webp" alt="Maišiagalos sportas komanda žaliais firminiais marškinėliais" width="800" height="999" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="alt" id="rinktines">
+  <div class="wrap">
+    <div class="teams-head">
+      <div>
+        <h2>Sportinės rinktinės</h2>
+        <p class="lead">Mūsų komandos atstovauja Maišiagalai regioniniuose ir šalies čempionatuose. Komandas sudaro stipriausi ir veiklose aktyviausiai dalyvaujantys sportininkai.</p>
+      </div>
+      <img class="spike" src="images/maisiagalos-sporto-simbolis-pantera-smeigia-t.webp" alt="Maišiagalos sporto simbolis – pantera smeigia tinklinio kamuolį" width="413" height="620">
+    </div>
+    <div class="teams">
+      <article class="card team"><img class="round" src="images/fk-biciuliai-ms-logotipas.webp" alt="FK BIČIULIAI-MS logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>FK BIČIULIAI-MS</h3><p>Futbolo komanda</p><button type="button" class="btn sm" data-team="fk">Susipažink</button></article>
+      <article class="card team"><img src="images/mstr-logotipas.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mv">Susipažink</button></article>
+      <article class="card team"><img src="images/mstr-logotipas-2.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Merginos</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mm">Susipažink</button></article>
+      <article class="card team"><img src="images/mskr-logotipas.webp" alt="MSKR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSKR</h3><p>Krepšinio komanda</p><button type="button" class="btn sm" data-team="kv">Susipažink</button></article>
+    </div>
+  </div>
+</section>
+
+<section id="kalendorius">
+  <div class="wrap">
+    <h2>Veiklų kalendorius</h2>
+    <p class="lead">Pasirinkite mėnesį arba ieškokite renginių pagal datą. Spustelėkite renginį, kad pamatytumėte išsamią informaciją.</p>
+    <div class="cal" id="cal">
+      <div class="cal-bar">
+        <div class="cal-nav">
+          <button type="button" class="cal-btn" id="cal-prev" aria-label="Ankstesnis mėnuo">&#8249;</button>
+          <h3 class="cal-title" id="cal-title" aria-live="polite"></h3>
+          <button type="button" class="cal-btn" id="cal-next" aria-label="Kitas mėnuo">&#8250;</button>
+          <button type="button" class="cal-today" id="cal-today">Šiandien</button>
+        </div>
+        <div class="cal-find">
+          <label for="cal-date">Ieškoti pagal datą</label>
+          <input type="date" id="cal-date">
+        </div>
+      </div>
+      <div class="cal-found" id="cal-found" role="status" hidden></div>
+      <div class="cal-head" aria-hidden="true">
+        <span><i class="f">Pirmadienis</i><i class="s">Pr</i></span><span><i class="f">Antradienis</i><i class="s">An</i></span><span><i class="f">Trečiadienis</i><i class="s">Tr</i></span><span><i class="f">Ketvirtadienis</i><i class="s">Kt</i></span><span><i class="f">Penktadienis</i><i class="s">Pn</i></span><span><i class="f">Šeštadienis</i><i class="s">Št</i></span><span><i class="f">Sekmadienis</i><i class="s">Sk</i></span>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+      <ul class="cal-legend" id="cal-legend"></ul>
+      <ul class="cal-list" id="cal-list"></ul>
+      <a class="partner" href="https://vrsc.lt" target="_blank" rel="noopener noreferrer"><img src="images/vilniaus-rajono-sporto-centras-vrsc.webp" alt="Vilniaus rajono sporto centras (VRSC)" loading="lazy"><span><b>Daugiau sporto renginių Vilniaus rajone</b><small>Paspauskite ir aplankykite Vilniaus rajono sporto centro svetainę</small></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="katalogas">
+  <div class="wrap">
+    <h2>Veiklų katalogas</h2>
+    <p class="lead">Renginių akimirkos. Pasirinkite raidę arba ieškokite pagal pavadinimą.</p>
+    <div class="cat-find"><label for="cat-q">Ieškoti pagal pavadinimą</label><input type="search" id="cat-q" placeholder="Pavadinimas…" autocomplete="off"></div>
+    <div class="abc" id="abc" role="group" aria-label="Filtruoti pagal pirmąją raidę"></div>
+    <div class="gal-grid" id="gal-grid"></div>
+    <div class="more">
+      <a class="btn" href="https://www.facebook.com/groups/1352681309700929/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Daugiau renginių čia</a>
+      <p>Visas renginių akimirkas rasite mūsų Facebook grupėje.</p>
+    </div>
+  </div>
+</section>
+
+<section id="paslaugos">
+  <div class="wrap">
+    <h2>Paslaugos</h2>
+    <p class="lead">Individualios sporto paslaugos Maišiagaloje. Paspauskite „Peržiūrėti“, kad sužinotumėte daugiau.</p>
+    <div class="grid">
+      <article class="card team"><h3>Privačios futbolo treniruotės</h3><p>Individualios treniruotės Maišiagaloje. Treneris – Laurynas Zizas. Kaina – 20 € / val.</p><button type="button" class="btn sm" data-svc="futbolas">Peržiūrėti</button></article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="socialine">
+  <div class="wrap">
+    <h2>Socialinė pilietinė veikla</h2>
+    <div class="civic">
+      <div>
+        <h3>Pilietinės socialinės valandos moksleiviams</h3>
+        <p>Moksleiviams, kurie padeda mūsų renginiuose, suteikiame pilietines socialines valandas. Tai galimybė įgyti patirties, prisidėti prie bendruomenės ir atlikti socialinę pilietinę veiklą.</p>
+        <a class="btn" href="#kontaktai">Domėtis galimybėmis</a>
+      </div>
+      <img src="images/maisiagalos-sporto-simbolis-pantera-su-fotoap.webp" alt="Maišiagalos sporto simbolis – pantera su fotoaparatu" width="623" height="560" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="kontaktai">
+  <div class="wrap">
+    <h2>Kontaktai</h2>
+    <p class="lead">Susipažinkite su mūsų komanda ir rašykite tiesiogiai tam, kas jums reikalingas.</p>
+    <div class="cmain"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Bendras el. paštas</small><a href="mailto:maisiagalossportas@gmail.com">maisiagalossportas@gmail.com</a></div></div>
+    <div class="people">
+      <article class="card pcard"><div class="ph"><img src="images/arturas.webp" alt="Artūras" loading="lazy"></div><h3>Artūras</h3><span class="role">Veiklų kuratorius</span><p>Maišiagalos sporto komandos narys, visų vykstančių veiklų ir sportinių komandų kuratorius. Prisideda prie veiklų ir renginių organizavimo bei bendros komunikacijos. FK „Bičiuliai – MS“ žaidėjas. Rūpinasi, kad kiekviena veikla vyktų sklandžiai, o komandos jaustųsi palaikomos.</p><ul class="plinks"><li><a href="mailto:babelisarturas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>babelisarturas@gmail.com</a></li><li><a href="tel:+37067617381"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 676 17381</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/darius.webp" alt="Darius" loading="lazy"></div><h3>Darius</h3><span class="role">Organizavimas ir komunikacija</span><p>Maišiagalos sporto komandos narys, prisidedantis prie sprendimų priėmimo, renginių apipavidalinimo, organizavimo ir komunikacijos bei dekoracijų gaminimo. Idėjų ir darbštumo jam nestinga: dažnai jis atsiranda ten, kur reikia rankų ir sprendimų.</p><ul class="plinks"><li><a href="mailto:darekbilat30@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>darekbilat30@gmail.com</a></li><li><a href="tel:+37064663731"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 646 63 731</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/ernestas.webp" alt="Ernestas" loading="lazy"></div><h3>Ernestas</h3><span class="role">Renginių tvarka</span><p>Maišiagalos sporto komandos narys, aktyviai dalyvaujantis renginiuose ir prižiūrintis jų eigos tvarką. FK „Bičiuliai – MS“ žaidėjas, prisidedantis prie klausimų sprendimo ir renginių apipavidalinimo. Savo ramybe ir atsakingumu padeda renginiams vykti sklandžiai.</p><ul class="plinks"><li><a href="mailto:ernissalietis@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ernissalietis@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/paulina.webp" alt="Paulina" loading="lazy"></div><h3>Paulina</h3><span class="role">Mobilių veiklų kuratorė</span><p>Maišiagalos sporto komandos narė, prisidedanti prie klausimų sprendimo, renginių organizavimo ir dekoracijų gaminimo. MSTR žaidėja ir Mobilių veiklų kuratorė. Su jos kūrybiškumu kiekvienas renginys tampa jaukesnis ir šventiškesnis.</p><ul class="plinks"><li><a href="mailto:paulabarcenko@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>paulabarcenko@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/laurynas.webp" alt="Laurynas" loading="lazy"></div><h3>Laurynas</h3><span class="role">Futbolo treneris</span><p>Maišiagalos sporto komandos narys, FK „Bičiuliai – MS“ žaidėjas ir individualių futbolo treniruočių treneris, turintis LFF D licenciją. FK „Grakai“ įkūrėjas. Dalyvauja priimant sprendimus ir organizuojant renginius. Futbolas jam – gyvenimo būdas.</p><ul class="plinks"><li><a href="mailto:zizaslaurynas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>zizaslaurynas@gmail.com</a></li><li><a href="tel:+37061701036"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 617 01036</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/dziugas.webp" alt="Džiugas" loading="lazy"></div><h3>Džiugas</h3><span class="role">Mobilių veiklų vedėjas</span><p>Maišiagalos sporto komandos narys, MSKR žaidėjas ir Mobilių veiklų vedėjas. Prie sprendimų priėmimo prisideda sveiku, kritišku požiūriu, o prie renginių – aktyviu dalyvavimu. Dažnai atsako už techninius dalykus, pavyzdžiui, tiesiogines transliacijas (LIVE) ir grupės moderavimą.</p><ul class="plinks"><li><a href="mailto:dziugas.tomasiunas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>dziugas.tomasiunas@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/mahu.webp" alt="MaHu" loading="lazy"></div><h3>MaHu</h3><span class="role">Sporto simbolis</span><p>Maišiagalos sporto simbolis, prisidedantis prie mūsų visų žaismingumo ir teigiamų emocijų. MaHu visada šalia: renginiuose, nuotraukose ir pergalių šventėse.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="bureliai">
+  <div class="wrap">
+    <h2>Maišiagalos būreliai</h2>
+    <p class="lead">Veiklos ir būreliai, kuriuos galite rasti Maišiagaloje ir jos apylinkėse. Spauskite „Domėtis“, kad pamatytumėte daugiau.</p>
+    <div class="clubs">
+      <article class="card ccard"><div class="lg"><img src="images/ms-individualios-futbolo-treniruotes-logotipa.webp" alt="MS individualios futbolo treniruotės logotipas" loading="lazy"></div><h3>MS individualios futbolo treniruotės</h3><button type="button" class="btn sm" data-svc="futbolas">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/sokiu-kolektyvas-przyja-logotipas.webp" alt="Šokių kolektyvas „Przyjaźń“ logotipas" loading="lazy"></div><h3>Šokių kolektyvas „Przyjaźń“</h3><button type="button" class="btn sm" data-club="prz">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/baleto-studija-baletas-jums-logotipas.webp" alt="Baleto studija „Baletas JUMS“ logotipas" loading="lazy"></div><h3>Baleto studija „Baletas JUMS“</h3><button type="button" class="btn sm" data-club="bal">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/karate-mokykla-senshi-logotipas.webp" alt="Karatė mokykla „Senshi“ logotipas" loading="lazy"></div><h3>Karatė mokykla „Senshi“</h3><button type="button" class="btn sm" data-club="sen">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/vilnius-social-club-logotipas.webp" alt="Vilnius Social Club logotipas" loading="lazy"></div><h3>Vilnius Social Club</h3><button type="button" class="btn sm" data-club="vsc">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/bokso-klubas-olimpinis-ringas-logotipas.webp" alt="Bokso klubas „Olimpinis ringas“ logotipas" loading="lazy"></div><h3>Bokso klubas „Olimpinis ringas“</h3><button type="button" class="btn sm" data-club="box">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/fa-transinvest-logotipas.webp" alt="FA „TransINVEST“ logotipas" loading="lazy"></div><h3>FA „TransINVEST“</h3><button type="button" class="btn sm" data-club="fa">Domėtis</button></article>
+    </div>
+  </div>
+</section>
+<section id="parama">
+  <div class="wrap">
+    <h2>Parama</h2>
+    <p class="lead">Jūsų parama padeda mums organizuoti treniruotes, turnyrus ir renginius Maišiagaloje bei išlaikyti komandas varžybose.</p>
+    <div class="support">
+      <div class="card"><h3>Rekvizitai</h3><dl><dt>Gavėjas</dt><dd>VšĮ „Maišiagalos sportas“</dd><dt>Įmonės kodas</dt><dd>307511559</dd><dt>Banko sąskaita</dt><dd>LT62 7044 0901 1563 3990</dd><dt>Paskirtis</dt><dd>Parama sportui</dd></dl></div>
+      <div class="card"><h3>Kaip galite padėti</h3><p>Paremti galite finansiškai, prisidėdami prie komandų aprangos ir inventoriaus, renginių organizavimo ar savanoriaudami. Susisiekite su mumis ir aptarsime, kaip galite padėti.</p><a class="btn" href="#kontaktai">Susisiekite su mumis</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 VšĮ „Maišiagalos sportas“. Įmonės kodas 307511559.</div>
+</footer>
+
+<dialog class="team-dialog" id="club-dialog" aria-labelledby="club-name">
+  <div class="dlg-head"><img id="club-logo" src="" alt="" width="72" height="72"><div><h3 id="club-name"></h3><p id="club-kind"></p></div><button type="button" class="dlg-x" id="club-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body">
+    <img class="svc-poster" id="club-photo" src="" alt="">
+    <div><h4>Apie užsiėmimus</h4><p id="club-desc"></p></div>
+    <div><h4>Kontaktai, kur teirautis</h4><dl><dt id="club-tel-t">Telefonas</dt><dd id="club-tel-d"><a id="club-tel" href="#"></a></dd><dt id="club-web-t">Svetainė</dt><dd id="club-web-d"><a id="club-web" href="#" target="_blank" rel="noopener noreferrer"></a></dd></dl></div>
+  </div>
+</dialog>
+
+<dialog class="team-dialog" id="svc-dialog" aria-labelledby="svc-title">
+  <div class="dlg-head"><div><h3 id="svc-title">Privačios futbolo treniruotės</h3><p>Individualios treniruotės Maišiagaloje</p></div><button type="button" class="dlg-x" id="svc-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body">
+    <img class="svc-poster" id="svc-poster" src="images/individualiu-futbolo-treniruociu-maisiagaloje.webp" alt="Individualių futbolo treniruočių Maišiagaloje skelbimas">
+    <div><h4>Apie treniruotes</h4><p>Individualios futbolo treniruotės su asmeniniu treneriu: individualus dėmesys, technikos tobulinimas, pasitikėjimo ir žaidimo suvokimo ugdymas.</p></div>
+    <div><h4>Informacija</h4>
+      <dl><dt>Treneris</dt><dd>Laurynas Zizas</dd><dt>Patirtis</dt><dd>12 metų futbole</dd><dt>Vieta</dt><dd>Maišiagala</dd><dt>Kaina</dt><dd>20 € / val.</dd><dt>Telefonas</dt><dd><a href="tel:+37061701036">+370 617 01036</a></dd><dt>El. paštas</dt><dd><a href="mailto:zizaslaurynas@gmail.com">zizaslaurynas@gmail.com</a></dd></dl>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="team-dialog gal-dialog" id="gal-dialog" aria-labelledby="gal-title">
+  <div class="dlg-head"><div><h3 id="gal-title"></h3><p id="gal-meta"></p></div><button type="button" class="dlg-x" id="gal-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body" id="gal-body"><div class="gal-thumbs" id="gal-thumbs"></div></div>
+  <div class="gal-view" id="gal-view" hidden>
+    <button type="button" class="gal-nav prev" id="gal-prev" aria-label="Ankstesnė nuotrauka">&#8249;</button>
+    <img id="gal-img" alt="">
+    <button type="button" class="gal-nav next" id="gal-next" aria-label="Kita nuotrauka">&#8250;</button>
+    <button type="button" class="gal-back" id="gal-back">Atgal į nuotraukas</button>
+    <span class="gal-count" id="gal-count"></span>
+  </div>
+</dialog>
+
+<dialog class="team-dialog" id="ev-dialog" aria-label="Renginio informacija">
+  <div class="dlg-head"><h3>Renginio informacija</h3><button type="button" class="dlg-x" id="ev-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body" id="ev-body"></div>
+</dialog>
+
+<dialog class="team-dialog search-dialog" id="search-dialog" aria-label="Paieška svetainėje">
+  <div class="srch-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="search" id="q" placeholder="Ieškoti svetainėje…" autocomplete="off" aria-label="Paieška svetainėje">
+    <button type="button" class="dlg-x" id="srch-close" aria-label="Uždaryti">&times;</button>
+  </div>
+  <div class="srch-res" id="srch-res" aria-live="polite"></div>
+</dialog>
+
+<dialog class="team-dialog" id="team-dialog" aria-labelledby="dlg-name">
+  <div class="dlg-head">
+    <img id="dlg-logo" src="" alt="" width="72" height="72">
+    <div><h3 id="dlg-name"></h3><p id="dlg-kind"></p></div>
+    <button type="button" class="dlg-x" id="dlg-close" aria-label="Uždaryti">&times;</button>
+  </div>
+  <div class="dlg-body">
+    <img class="dlg-photo" id="dlg-photo" src="" alt="" width="900" height="675">
+    <div><h4>Apie komandą</h4><p id="dlg-desc"></p></div>
+    <div><h4>Pasiekimai</h4><div id="dlg-ach"></div></div>
+    <div><h4>Informacija</h4>
+      <dl><dt>Sporto šaka</dt><dd id="dlg-sport"></dd><dt>Komanda</dt><dd id="dlg-group"></dd><dt>Varžybos</dt><dd id="dlg-comp"></dd><dt id="dlg-coach-t">Treneris</dt><dd id="dlg-coach"></dd><dt id="dlg-ig-t" hidden>Instagram</dt><dd id="dlg-ig-d" hidden><a href="https://www.instagram.com/fk_biciuliai/" target="_blank" rel="noopener noreferrer">@fk_biciuliai</a></dd></dl>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var T={
+    fk:['FK BIČIULIAI-MS','Futbolo komanda','FK „Bičiuliai – MS“ – Maišiagalos futbolo komanda, vienijanti futbolą mylinčius žaidėjus ir atstovaujanti savo kraštui vietos bei tarpmiestinėse varžybose. Ši komanda buvo Maišiagalos sporto pamatas, o šiandien garsina Maišiagalos vardą aikštėje.','Futbolas','Vaikinai'],
+    mv:['MSTR','Tinklinio komanda','MSTR – Maišiagalos sporto tinklinio rinktinė – 2026 m. vasario 1 d. įkurta vaikinų tinklinio komanda, atstovaujanti Maišiagalai tinklinio turnyruose ir sporto renginiuose. Rinktinė suburia sportininkus, siekiančius tobulėti, garsinti savo kraštą ir įrodyti, kad Maišiagala gali sėkmingai konkuruoti su kitų Lietuvos miestų ir miestelių komandomis.','Tinklinis','Vaikinai'],
+    mm:['MSTR','Tinklinio komanda','MSTR – Maišiagalos sporto tinklinio rinktinės merginų komanda, atstovaujanti Maišiagalai tinklinio turnyruose ir sporto renginiuose. Rinktinė siekia tobulėti, stiprinti komandinį žaidimą ir garsinti savo kraštą. Nuo pirmųjų varžybų merginos demonstruoja ryžtą, komandinę dvasią ir gebėjimą konkuruoti dėl aukščiausių vietų.','Tinklinis','Merginos'],
+    kv:['MSKR','Krepšinio komanda','MSKR – Maišiagalos sporto krepšinio rinktinė – jauniausia Maišiagalos sporto komanda. 2026 m. balandžio 14 d. ji debiutavo Vilniaus krepšinio III lygoje ir atstovauja Maišiagalai krepšinio varžybose, plėsdama krepšinio veiklą savo krašte.','Krepšinis','Vaikinai']
+  };
+  var P={
+    fk:['images/foto-01.webp','FK BIČIULIAI-MS futbolo komanda su medaliais, taure ir Maišiagalos sporto vėliava'],
+    mv:['images/foto-02.webp','Maišiagalos sportas vaikinų tinklinio komanda MSTR žaliomis ir baltomis aprangomis'],
+    mm:['images/foto-03.webp','Maišiagalos sportas merginų tinklinio komanda MSTR salėje po tinkliniu tinklu'],
+    kv:['images/foto-04.webp','Maišiagalos sportas vaikinų krepšinio komanda MSKR su treneriais']
+  };
+  var A={fk:[
+    ['Čempionai','Vilniaus mažojo futbolo taurė, 2026 m.'],
+    ['Čempionai','Maišiagalos 7 prieš 7 „Laisvalaikio lygos“ rudens sezonas, 2025 m. (7 pergalės per 10 rungtynių, 50 įvarčių)'],
+    ['1 vieta','VSC paramos turnyras, 2025 m.'],
+    ['1 vieta','Sudervės krašto sporto varžybos, 2025 m. rugsėjis'],
+    ['Čempionai','Paberžės „Laisvalaikio lyga“ – du kartus'],
+    ['4 vieta','Vilniaus rajono seniūnijų žaidynės, 2025 m.'],
+    ['3 vieta','Kernavės taurė (dalyvauta keturis kartus)'],
+    ['3 vieta','Maišiagalos „Laisvalaikio lyga“, 2024 m.']
+  ],mv:[
+    ['1 vieta','Tarpmiestinis Maišiagalos tinklinio turnyras, 2026 m. kovo 29 d. (grupėje be pralaimėjimų, turnyro čempionai)'],
+    ['1 vieta','Sudervės tinklinio turnyras'],
+    ['2 vieta','Vilniaus rajono seniūnijų sporto žaidynės, vyrų paplūdimio tinklinis, 2026 m. birželio 6 d. (Maišiagalos seniūnijos rezultatas)'],
+    ['2 vieta','Lavoriškių tinklinio turnyras'],
+    ['2–3 vieta','Paberžės tinklinio turnyrai: pirmą kartą 2 vieta, antrą kartą 2 ir 3 vietos'],
+    ['Pergalė 4:0','Pirmosios draugiškos rungtynės prieš VIKO Vilniuje, 2026 m. vasario 9 d.']
+  ],mm:[
+    ['1 vieta','Lavoriškių tinklinio turnyras – turnyro čempionės'],
+    ['2 vieta','Paberžės tinklinio turnyras'],
+    ['2 vieta','Vilniaus rajono seniūnijų sporto žaidynės']
+  ],kv:[
+    ['Pergalė 91:65','Pirmoji pergalė Vilniaus krepšinio III lygoje prieš „Aktyvi veikla“, 2026 m. gegužės 14 d. (Adam Kamil Stankevič pelnė 46 taškus)'],
+    ['2 vieta','Vilniaus rajono seniūnijų sporto žaidynės, krepšinio meistrų kategorija, 2026 m. (Maišiagalos seniūnijos rezultatas)'],
+    ['3 vieta','Maišiagalos seniūnijos taurė'],
+    ['Sezonas','Pirmasis sezonas Vilniaus krepšinio III lygoje, 2026 m. pavasaris: 8 rungtynės, dvejas rungtynes pralaimėta vos 2–3 taškų skirtumu'],
+    ['Debiutas','Pirmosios rungtynės Vilniaus krepšinio III lygoje prieš „New Generation“, 2026 m. balandžio 14 d.']
+  ]};
+  var K={fk:['Artūras Babelis'],kv:['Artūras Babelis','Gžegožas Jasinskij'],mm:['Artūras Babelis','Andrėja Jankauskaitė'],mv:['Artūras Babelis','Arkadiuš Lipnevič']};
+  var C={fk:'Mėgėjų turnyrai, lygos, taurės ir draugiškos rungtynės',mv:'Tinklinio turnyrai Maišiagaloje ir kituose miestuose, draugiškos rungtynės',mm:'Tinklinio turnyrai ir sporto renginiai',kv:'Vilniaus krepšinio lygos III lyga, seniūnijų sporto žaidynės'};
+  window.MS={T:T,A:A,K:K,C:C};
+  var d=document.getElementById('team-dialog'),$=function(i){return document.getElementById(i)};
+  document.querySelectorAll('[data-team]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=T[b.dataset.team],im=b.closest('.team').querySelector('img');
+      $('dlg-name').textContent=t[0];$('dlg-kind').textContent=t[1];$('dlg-desc').textContent=t[2];
+      $('dlg-sport').textContent=t[3];$('dlg-group').textContent=t[4];
+      $('dlg-logo').src=im.src;$('dlg-photo').src=P[b.dataset.team][0];$('dlg-photo').alt=P[b.dataset.team][1];
+      var k=b.dataset.team,ac=$('dlg-ach');ac.textContent='';
+      if(A[k]){var ul=document.createElement('ul');ul.className='ach';A[k].forEach(function(r){var li=document.createElement('li'),s=document.createElement('b'),x=document.createElement('span');s.textContent=r[0];x.textContent=r[1];li.appendChild(s);li.appendChild(x);ul.appendChild(li)});ac.appendChild(ul)}
+      else{var pp=document.createElement('p');pp.textContent='Komandos pasiekimai bus pridėti.';ac.appendChild(pp)}
+      $('dlg-comp').textContent=C[k]||'Bus papildyta';
+      $('dlg-coach-t').textContent=K[k].length>1?'Treneriai':'Treneris';$('dlg-coach').textContent=K[k].join(', ');
+      $('dlg-ig-t').hidden=(k!=='fk');$('dlg-ig-d').hidden=(k!=='fk');$('dlg-logo').className=im.className;
+      if(d.showModal){d.showModal()}else{d.setAttribute('open','')}
+    });
+  });
+  $('dlg-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d){d.close()}});
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)},dlg=$('search-dialog'),inp=$('q'),res=$('srch-res'),idx=null;
+  function norm(s){var o='';for(var i=0;i<s.length;i++){o+=s.charAt(i).normalize('NFD').charAt(0).toLowerCase().charAt(0)}return o}
+  function clean(t){return t.split(/\s+/).join(' ').trim()}
+  function build(){
+    idx=[];
+    [['pradzia','Pradžia'],['apie','Apie mus'],['rinktines','Sportinės rinktinės'],['kalendorius','Veiklų kalendorius'],['katalogas','Veiklų katalogas'],['paslaugos','Paslaugos'],['socialine','Socialinė pilietinė veikla'],['kontaktai','Kontaktai'],['bureliai','Maišiagalos būreliai'],['parama','Parama']].forEach(function(s){var el=$(s[0]);idx.push({t:s[1],l:'Skiltis',x:clean(el.textContent),el:el,sec:1})});
+    if(window.CAL){window.CAL.events.forEach(function(ev){idx.push({t:ev.title,l:'Veiklų kalendorius · '+window.CAL.fmt(ev.date),x:clean([ev.title,ev.place,ev.time,ev.desc,window.CAL.fmt(ev.date),ev.date].join(' ')),ev:ev})})}
+    if(window.CAT){window.CAT.items.forEach(function(g){idx.push({t:g.title,l:'Veiklų katalogas',x:clean(g.title+' renginio akimirkos nuotraukos'),gal:g})})}
+    var M=window.MS;
+    if(M){Object.keys(M.T).forEach(function(k){var t=M.T[k],a=(M.A[k]||[]).map(function(r){return r[0]+' '+r[1]}).join(' ');idx.push({t:t[0]+' ('+t[4].toLowerCase()+')',l:'Sportinės rinktinės · '+t[1],x:clean([t[0],t[1],t[2],t[3],t[4],(M.K[k]||[]).join(' '),M.C[k]||'',a].join(' ')),team:k})})}
+  }
+  function search(w){
+    var out=[];
+    idx.forEach(function(it,i){
+      var nt=it.nt||(it.nt=norm(it.t)),nx=it.nx||(it.nx=norm(it.x));
+      var inT=w.every(function(x){return nt.indexOf(x)>-1}),inX=w.every(function(x){return nx.indexOf(x)>-1});
+      if(inT||inX){out.push({it:it,i:i,s:inT?3:(it.sec?.5:1)})}
+    });
+    out.sort(function(a,b){return b.s-a.s||a.i-b.i});
+    return out.slice(0,8);
+  }
+  function go(it){
+    dlg.close();
+    if(it.ev){window.CAL.show([it.ev]);return}
+    if(it.gal){window.CAT.open(it.gal);return}
+    if(it.team){var b=document.querySelector('[data-team="'+it.team+'"]');if(b){b.click()}return}
+    if(it.cat){var all=document.querySelector('.chips button[data-f="all"]');if(all){all.click()}}
+    setTimeout(function(){it.el.scrollIntoView({behavior:'smooth',block:it.sec?'start':'center'})},60);
+  }
+  function mk(it,w){
+    var b=document.createElement('button');b.type='button';b.className='srch-item';
+    var t=document.createElement('b');t.textContent=it.t;
+    var l=document.createElement('small');l.textContent=it.l;
+    b.appendChild(t);b.appendChild(l);
+    var p=w.length?norm(it.x).indexOf(w[0]):-1;
+    if(p>-1){
+      var s=Math.max(0,p-40),e=Math.min(it.x.length,p+w[0].length+90),sp=document.createElement('span'),m=document.createElement('mark');
+      sp.appendChild(document.createTextNode((s>0?'…':'')+it.x.slice(s,p)));
+      m.textContent=it.x.slice(p,p+w[0].length);sp.appendChild(m);
+      sp.appendChild(document.createTextNode(it.x.slice(p+w[0].length,e)+(e<it.x.length?'…':'')));
+      b.appendChild(sp);
+    }
+    b.addEventListener('click',function(){go(it)});
+    return b;
+  }
+  function hint(t){var p=document.createElement('p');p.className='hint';p.textContent=t;res.appendChild(p)}
+  function render(){
+    if(!idx){build()}
+    res.textContent='';
+    var w=norm(inp.value.trim()).split(' ').filter(Boolean);
+    if(!w.length){hint('Pasirinkite skiltį arba pradėkite rašyti:');idx.slice(0,10).forEach(function(it){res.appendChild(mk(it,[]))});return}
+    var r=search(w);
+    if(!r.length){hint('Nieko nerasta. Pabandykite kitą žodį.');return}
+    r.forEach(function(o){res.appendChild(mk(o.it,w))});
+  }
+  $('search-btn').addEventListener('click',function(){
+    inp.value='';render();
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}
+    inp.focus();
+  });
+  inp.addEventListener('input',render);
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=res.querySelector('.srch-item');if(f){f.click()}}});
+  $('srch-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg){dlg.close()}});
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var MN=['sausis','vasaris','kovas','balandis','gegužė','birželis','liepa','rugpjūtis','rugsėjis','spalis','lapkritis','gruodis'];
+  var MG=['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
+  var CATS={tin:['Tinklinis','#17803e'],kre:['Krepšinis','#b3261e'],fut:['Futbolas','#2f5f8f'],bend:['Bendruomenė','#7a4fb5']};
+  /* Renginiai. Pridėkite naują eilutę: data (MMMM-MM-DD), pavadinimas, kategorija (tin, kre, fut, bend), laikas, vieta, aprašymas. */
+  var D='Daugiau informacijos bus pateikta Facebooke.';
+  var E=[
+    {date:'2026-12-05',title:'MIX tinklinio lyga III sezonas',cat:'tin',desc:'Su šventine pertrauka 2026 m. gruodžio 26 d. – 2027 m. sausio 9 d. '+D},
+    {date:'2027-01-17',title:'Rogučių popietė',cat:'bend',desc:D},
+    {date:'2027-02-13',title:'Tarpmiestinis Maišiagalos tinklinio turnyras – vaikinai',cat:'tin',desc:D},
+    {date:'2027-03-06',title:'Tarpmiestinis Maišiagalos tinklinio turnyras – merginos',cat:'tin',desc:D},
+    {date:'2027-04-24',title:'Maišiagalos futbolo taurė',cat:'fut',desc:D},
+    {date:'2027-06-05',title:'Orientacinės varžybos',cat:'bend',desc:D},
+    {date:'2027-06-26',title:'Maišiagalos smėlio tinklinio turnyras',cat:'tin',desc:D},
+    {date:'2027-07-23',end:'2027-07-25',title:'Maišiagalos žaidynės 2027',cat:'bend',desc:D},
+    {date:'2027-10-02',title:'Maišiagalos 3×3 krepšinio lyga',cat:'kre',desc:D}
+  ];
+  var byDate={};E.forEach(function(e,i){e.i=i;var a=e.date.split('-'),n=0,k=e.date;do{(byDate[k]=byDate[k]||[]).push(e);n++;k=iso(new Date(+a[0],+a[1]-1,+a[2]+n))}while(e.end&&k<=e.end)});
+  function p2(n){return n<10?'0'+n:''+n}
+  function iso(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
+  function fmt(k){var a=k.split('-');return a[0]+' m. '+MG[+a[1]-1]+' '+(+a[2])+' d.'}
+  function rng(ev){if(!ev.end){return fmt(ev.date)}var a=ev.date.split('-'),b=ev.end.split('-');return a[0]===b[0]&&a[1]===b[1]?a[0]+' m. '+MG[+a[1]-1]+' '+(+a[2])+'–'+(+b[2])+' d.':fmt(ev.date)+' – '+fmt(ev.end)}
+  function el(t,c,x){var n=document.createElement(t);if(c){n.className=c}if(x!=null){n.textContent=x}return n}
+  var now=new Date(),todayKey=iso(now),view={y:now.getFullYear(),m:now.getMonth()},sel=null;
+  var grid=$('cal-grid'),title=$('cal-title'),found=$('cal-found'),list=$('cal-list'),dateIn=$('cal-date'),dlg=$('ev-dialog'),body=$('ev-body');
+  function show(evs){
+    body.textContent='';
+    evs.forEach(function(ev,i){
+      var c=CATS[ev.cat],a=el('article','evx'),dl=el('dl');
+      a.style.setProperty('--ev',c[1]);if(i){a.classList.add('sep')}
+      a.appendChild(el('span','evtag',c[0]));a.appendChild(el('h3','evt',ev.title));
+      [['Data',rng(ev)],['Laikas',ev.time],['Vieta',ev.place]].forEach(function(r){if(r[1]){dl.appendChild(el('dt',null,r[0]));dl.appendChild(el('dd',null,r[1]))}});
+      a.appendChild(dl);a.appendChild(el('p',null,ev.desc));
+      var bt=el('div','evbtn'),f=el('a','btn sm','Facebook grupė');f.href='https://www.facebook.com/groups/1352681309700929/';f.target='_blank';f.rel='noopener noreferrer';bt.appendChild(f);var l=el('a','btn sm','Susisiekti dėl dalyvavimo');l.href='#kontaktai';l.addEventListener('click',function(){dlg.close()});bt.appendChild(l);a.appendChild(bt);
+      body.appendChild(a);
+    });
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}
+  }
+  function renderFound(){
+    found.textContent='';
+    if(!sel){found.hidden=true;return}
+    var evs=byDate[sel]||[];found.hidden=false;
+    found.appendChild(el('span',null,fmt(sel)+' – '+(evs.length?'renginių: '+evs.length:'renginių nėra.')));
+    evs.forEach(function(ev){var b=el('button','cal-link',ev.title);b.type='button';b.style.setProperty('--ev',CATS[ev.cat][1]);b.addEventListener('click',function(){show([ev])});found.appendChild(b)});
+    var x=el('button','cal-clear','Išvalyti');x.type='button';x.addEventListener('click',function(){sel=null;dateIn.value='';render()});found.appendChild(x);
+  }
+  function renderList(){
+    list.textContent='';
+    var pre=view.y+'-'+p2(view.m+1)+'-';
+    var evs=E.filter(function(e){return e.date.indexOf(pre)===0}).sort(function(a,b){return (a.date+a.time)<(b.date+b.time)?-1:1});
+    if(!evs.length){list.appendChild(el('li','cal-empty','Šį mėnesį renginių nėra.'));return}
+    evs.forEach(function(ev){
+      var li=document.createElement('li'),b=el('button'),d=ev.date.split('-');b.type='button';b.style.setProperty('--ev',CATS[ev.cat][1]);
+      b.appendChild(el('b',null,(+d[2])+(ev.end?'–'+(+ev.end.split('-')[2]):'')+' '+MG[d[1]-1]+' d.'));b.appendChild(el('span',null,ev.title+(ev.time?', '+ev.time:'')));
+      b.addEventListener('click',function(){show([ev])});li.appendChild(b);list.appendChild(li);
+    });
+  }
+  function render(){
+    var y=view.y,m=view.m,off=(new Date(y,m,1).getDay()+6)%7,weeks=Math.ceil((off+new Date(y,m+1,0).getDate())/7);
+    title.textContent=y+' m. '+MN[m];grid.textContent='';
+    for(var i=0;i<weeks*7;i++){
+      var d=new Date(y,m,1-off+i),k=iso(d),c=el('div','cal-day'),evs=byDate[k]||[];
+      c.dataset.date=k;
+      if(d.getMonth()!==m){c.classList.add('out')}
+      if(k===todayKey){c.classList.add('today')}
+      if(k===sel){c.classList.add('sel')}
+      if(evs.length){c.classList.add('has')}
+      c.setAttribute('aria-label',fmt(k)+(evs.length?', renginių: '+evs.length:''));
+      c.appendChild(el('span','cal-n',d.getDate()));
+      evs.forEach(function(ev){var b=el('button','ev',ev.title);b.type='button';b.dataset.i=ev.i;b.style.setProperty('--ev',CATS[ev.cat][1]);c.appendChild(b)});
+      grid.appendChild(c);
+    }
+    renderFound();renderList();
+  }
+  function move(n){view.m+=n;if(view.m<0){view.m=11;view.y--}if(view.m>11){view.m=0;view.y++}render()}
+  grid.addEventListener('click',function(e){
+    var b=e.target.closest('.ev');if(b){show([E[+b.dataset.i]]);return}
+    var c=e.target.closest('.cal-day');if(c&&byDate[c.dataset.date]){show(byDate[c.dataset.date])}
+  });
+  $('cal-prev').addEventListener('click',function(){move(-1)});
+  $('cal-next').addEventListener('click',function(){move(1)});
+  $('cal-today').addEventListener('click',function(){view={y:now.getFullYear(),m:now.getMonth()};render()});
+  dateIn.addEventListener('input',function(){
+    var v=dateIn.value;
+    if(v){var a=v.split('-');sel=v;view={y:+a[0],m:+a[1]-1}}else{sel=null}
+    render();
+  });
+  $('ev-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg){dlg.close()}});
+  var lg=$('cal-legend');Object.keys(CATS).forEach(function(k){var li=el('li');li.style.setProperty('--ev',CATS[k][1]);li.appendChild(el('i'));li.appendChild(document.createTextNode(CATS[k][0]));lg.appendChild(li)});
+  window.CAL={events:E,show:show,fmt:fmt};
+  render();
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var AB='A Ą B C Č D E Ę Ė F G H I Į Y J K L M N O P R S Š T U Ų Ū V Z Ž'.split(' ');
+  var MG=['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
+  /* Katalogas. Pridėkite renginį: {title:'Pavadinimas',date:'MMMM-MM-DD' (nebūtina),photos:['data:image/webp;base64,...']}. Pirma nuotrauka rodoma kaip peržiūra. */
+  var G=[
+    {title:"Stalo teniso turnyras 2025",photos:['images/foto-05.webp','images/foto-06.webp','images/foto-07.webp','images/foto-08.webp','images/foto-09.webp','images/foto-10.webp','images/foto-11.webp','images/foto-12.webp','images/foto-13.webp']},
+    {title:"Maišiagalos kalėdų šventė 2025",photos:['images/foto-14.webp','images/foto-15.webp','images/foto-16.webp','images/foto-17.webp','images/foto-18.webp','images/foto-19.webp','images/foto-20.webp','images/foto-21.webp','images/foto-22.webp']},
+    {title:"Kalėdinis Futsal ir krepšinio turnyras 2025",photos:['images/foto-23.webp','images/foto-24.webp','images/foto-25.webp','images/foto-26.webp','images/foto-27.webp','images/foto-28.webp','images/foto-29.webp','images/foto-30.webp','images/foto-31.webp','images/foto-32.webp']},
+    {title:"MIX tinklinio lyga 2026",photos:['images/foto-33.webp','images/foto-34.webp','images/foto-35.webp','images/foto-36.webp','images/foto-37.webp','images/foto-38.webp','images/foto-39.webp','images/foto-40.webp','images/foto-41.webp','images/foto-42.webp']},
+    {title:"Sausio 13-tosios Laisvės žygis 2026",photos:['images/foto-43.webp','images/foto-44.webp','images/foto-45.webp','images/foto-46.webp','images/foto-47.webp','images/foto-48.webp','images/foto-49.webp','images/foto-50.webp','images/foto-51.webp','images/foto-52.webp','images/foto-53.webp']},
+    {title:"Rogučių popietė 2026",photos:['images/foto-54.webp','images/foto-55.webp','images/foto-56.webp','images/foto-57.webp','images/foto-58.webp','images/foto-59.webp','images/foto-60.webp','images/foto-61.webp','images/foto-62.webp','images/foto-63.webp','images/foto-64.webp','images/foto-65.webp']}
+  ];
+  var items=G.slice().sort(function(a,b){return a.title.localeCompare(b.title,'lt')});
+  function norm(s){var o='';for(var i=0;i<s.length;i++){o+=s.charAt(i).normalize('NFD').charAt(0).toLowerCase().charAt(0)}return o}
+  function el(t,c,x){var n=document.createElement(t);if(c){n.className=c}if(x!=null){n.textContent=x}return n}
+  function first(t){var c=t.trim().charAt(0).toLocaleUpperCase('lt');return AB.indexOf(c)>-1?c:'#'}
+  function meta(g){var d=g.date?g.date.split('-'):null;return (d?d[0]+' m. '+MG[d[1]-1]+' '+(+d[2])+' d. · ':'')+'Nuotraukų: '+g.photos.length}
+  var letter=null,q='',abc=$('abc'),grid=$('gal-grid'),qi=$('cat-q'),dlg=$('gal-dialog'),thumbs=$('gal-thumbs'),gb=$('gal-body'),vw=$('gal-view'),img=$('gal-img'),cur=null,pos=0,present={};
+  items.forEach(function(g){present[first(g.title)]=1});
+  function drawAbc(){
+    abc.textContent='';
+    var keys=['Visi'].concat(AB);if(present['#']){keys.push('0–9')}
+    keys.forEach(function(k){
+      var key=k==='Visi'?null:(k==='0–9'?'#':k),b=el('button',null,k);
+      b.type='button';
+      if(key!==null&&!present[key]){b.className='empty'}
+      b.setAttribute('aria-pressed',String(letter===key));
+      b.addEventListener('click',function(){letter=(letter===key)?null:key;drawAbc();render()});
+      abc.appendChild(b);
+    });
+  }
+  function render(){
+    grid.textContent='';
+    if(!items.length&&letter===null&&!q.trim()){grid.appendChild(el('p','cal-empty','Renginių akimirkos netrukus bus pridėtos.'));return}
+    var w=norm(q.trim()).split(' ').filter(Boolean);
+    var r=items.filter(function(g){var n=norm(g.title);return (letter===null||first(g.title)===letter)&&w.every(function(x){return n.indexOf(x)>-1})});
+    if(!r.length){grid.appendChild(el('p','cal-empty','Nieko nerasta. Pabandykite kitą raidę ar žodį.'));return}
+    r.forEach(function(g){
+      var c=el('article','card gcard'),im=el('img'),b=el('div'),btn=el('button','btn sm','Peržiūrėti');
+      im.src=g.photos[0];im.alt='Renginio „'+g.title+'“ nuotrauka';im.loading='lazy';
+      im.addEventListener('click',function(){open(g)});
+      btn.type='button';btn.addEventListener('click',function(){open(g)});
+      b.appendChild(el('h3',null,g.title));b.appendChild(el('p',null,meta(g)));b.appendChild(btn);
+      c.appendChild(im);c.appendChild(b);grid.appendChild(c);
+    });
+  }
+  function view(i){
+    var n=cur.photos.length;pos=(i+n)%n;
+    img.src=cur.photos[pos];img.alt=cur.title+' – nuotrauka '+(pos+1);
+    $('gal-count').textContent=(pos+1)+' / '+n;
+    gb.hidden=true;vw.hidden=false;
+  }
+  function back(){vw.hidden=true;gb.hidden=false}
+  function open(g){
+    cur=g;$('gal-title').textContent=g.title;$('gal-meta').textContent=meta(g);
+    thumbs.textContent='';
+    g.photos.forEach(function(s,i){
+      var b=el('button'),im=el('img');b.type='button';b.setAttribute('aria-label','Nuotrauka '+(i+1));
+      im.src=s;im.alt='';im.loading='lazy';b.appendChild(im);
+      b.addEventListener('click',function(){view(i)});thumbs.appendChild(b);
+    });
+    back();
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}
+  }
+  qi.addEventListener('input',function(){q=qi.value;render()});
+  $('gal-prev').addEventListener('click',function(){view(pos-1)});
+  $('gal-next').addEventListener('click',function(){view(pos+1)});
+  $('gal-back').addEventListener('click',back);
+  $('gal-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg){dlg.close()}});
+  dlg.addEventListener('keydown',function(e){if(vw.hidden){return}if(e.key==='ArrowLeft'){view(pos-1)}else if(e.key==='ArrowRight'){view(pos+1)}});
+  dlg.addEventListener('cancel',function(e){if(!vw.hidden){e.preventDefault();back()}});
+  window.CAT={items:items,open:open};
+  drawAbc();render();
+})();
+(function(){
+  var d=document.getElementById('svc-dialog');
+  document.querySelectorAll('[data-svc]').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(d.showModal){d.showModal()}else{d.setAttribute('open','')}
+    });
+  });
+  document.getElementById('svc-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d){d.close()}});
+})();
+(function(){
+  var C={"prz": {"n": "Šokių kolektyvas „Przyjaźń“", "k": "Šokių kolektyvas · Folk Dance", "d": "Šokių kolektyvas „Przyjaźń“ (lenk. „Draugystė“) vienija šokėjus, kuriems svarbios šokio tradicijos, bendravimas ir scenos džiaugsmas. Kolektyvas koncertuoja įvairiuose renginiuose ir festivaliuose. Norintys sužinoti daugiau ar prisijungti gali skambinti nurodytu numeriu.", "t": "+370 609 94660", "w": null, "p": "images/foto-66.webp"}, "bal": {"n": "Baleto studija „Baletas JUMS“", "k": "Baleto studija", "d": "Baleto studija „Baletas JUMS“ veikia nuo 2014 metų. Čia mažieji ir vyresni šokėjai mokosi baleto pagrindų, lavina plastiką, koordinaciją ir ugdo meilę šokiui.", "t": "+370 648 72098", "w": null, "p": "images/foto-67.webp"}, "sen": {"n": "Karatė mokykla „Senshi“", "k": "Karatė · kovos menai", "d": "Karatė mokykla „Senshi“ moko karatė technikos, ugdo discipliną, pagarbą ir pasitikėjimą savimi. Treniruotėse sportuoja įvairaus amžiaus ir pasirengimo žmonės.", "t": "+370 648 04 286", "w": null, "p": "images/foto-68.webp"}, "vsc": {"n": "Vilnius Social Club", "k": "Bendruomeninis klubas", "d": "Vilnius Social Club – klubas, kviečiantis susipažinti, bendrauti ir aktyviai leisti laiką kartu. Apie klubo veiklas ir artimiausius renginius galima sužinoti paskambinus nurodytu numeriu.", "t": "+370 647 06985", "w": null, "p": "images/foto-69.webp"}, "box": {"n": "Bokso klubas „Olimpinis ringas“", "k": "Boksas", "d": "Bokso klubas „Olimpinis ringas“ kviečia mokytis bokso pagrindų, stiprinti fizinį pasirengimą ir ugdyti valią bei discipliną. Treniruotės tinka tiek pradedantiesiems, tiek jau sportuojantiems.", "t": "+370 677 67580", "w": null, "p": "images/foto-70.webp"}, "fa": {"n": "FA „TransINVEST“", "k": "Futbolo klubas · Vilnius", "d": "Vilniaus futbolo klubas „TransINVEST“ ugdo jaunuosius futbolininkus: moko žaidimo technikos, komandinio žaidimo ir džiaugtis sportu kartu. Dėl registracijos ir treniruočių laiko skambinkite nurodytu numeriu.", "t": "+370 686 64692", "w": null, "p": "images/foto-71.webp"}};
+  var $=function(i){return document.getElementById(i)},d=$('club-dialog');
+  document.querySelectorAll('[data-club]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=C[b.dataset.club],im=b.closest('.ccard').querySelector('img');
+      $('club-logo').src=im.src;$('club-name').textContent=c.n;$('club-kind').textContent=c.k;
+      $('club-photo').src=c.p;$('club-photo').alt=c.n;$('club-desc').textContent=c.d;
+      var t=$('club-tel');t.textContent=c.t||'';t.href=c.t?'tel:'+c.t.replace(/\s/g,''):'#';
+      $('club-tel-t').hidden=$('club-tel-d').hidden=!c.t;
+      var w=$('club-web');w.textContent=c.w?c.w.replace('https://','').replace(/\/$/,''):'';w.href=c.w||'#';
+      $('club-web-t').hidden=$('club-web-d').hidden=!c.w;
+      if(d.showModal){d.showModal()}else{d.setAttribute('open','')}
+    });
+  });
+  $('club-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d){d.close()}});
+})();
+</script>
+</body>
+</html>
