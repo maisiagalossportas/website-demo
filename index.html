@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>VšĮ „Maišiagalos sportas“</title>
-<link rel="icon" type="image/svg+xml" href="images/%C5%BDalias%20MS%20logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -31,6 +30,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:va
 nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{text-decoration:none;font-size:15px;font-weight:500;padding:6px 10px;border-radius:999px;color:var(--muted);flex:none}
 nav a:hover{background:var(--surface);color:var(--ink)}
+nav a.active{background:var(--hero);color:var(--green-d)}
 header .wrap{max-width:1700px}
 .search-btn{order:2;flex:none;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--green-d);cursor:pointer}
 .search-btn:hover{background:var(--surface)}
@@ -820,6 +820,54 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   });
   $('club-close').addEventListener('click',function(){d.close()});
   d.addEventListener('click',function(e){if(e.target===d){d.close()}});
+})();
+(function(){
+  var nav=document.querySelector('nav'),header=document.querySelector('header');
+  var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  var cur=null,lock=false,lt;
+
+  function set(id){
+    if(id===cur){return}
+    cur=id;
+    links.forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('active',on);
+      if(on){a.setAttribute('aria-current','true')}else{a.removeAttribute('aria-current')}
+      if(on&&nav.scrollWidth>nav.clientWidth){
+        var r=a.getBoundingClientRect(),n=nav.getBoundingClientRect();
+        nav.scrollTo({left:nav.scrollLeft+r.left-n.left-(n.width-r.width)/2,behavior:'smooth'});
+      }
+    });
+  }
+
+  function spy(){
+    var line=header.offsetHeight+24,id=links[0].getAttribute('href').slice(1);
+    secs.forEach(function(s){if(s&&s.getBoundingClientRect().top<=line){id=s.id}});
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2){id=secs[secs.length-1].id}
+    set(id);
+  }
+
+  function onScroll(){
+    if(lock){clearTimeout(lt);lt=setTimeout(function(){lock=false;spy()},150);return}
+    spy();
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click',function(){
+      set(a.getAttribute('href').slice(1));
+      lock=true;clearTimeout(lt);
+      lt=setTimeout(function(){lock=false;spy()},1200);
+    });
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick){return}tick=true;
+    requestAnimationFrame(function(){tick=false;onScroll()});
+  },{passive:true});
+  window.addEventListener('resize',spy);
+  spy();
 })();
 </script>
 </body>
