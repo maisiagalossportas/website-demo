@@ -1,10 +1,11 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" type="image/svg+xml" href="images/foto-001.svg"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="lt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>VšĮ „Maišiagalos sportas“</title>
-<link rel="icon" type="image/svg+xml" href="images/%C5%BDalias%20MS%20logo.svg">
+<link rel="icon" type="image/svg+xml" href="images/foto-001.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -27,10 +28,11 @@ a{color:inherit}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
 .logo{font-weight:800;text-decoration:none;font-size:18px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-.mark{width:19px;height:34px;flex:none;background:var(--green);-webkit-mask:url(images/logo-zenklas.png) center/contain no-repeat;mask:url(images/logo-zenklas.png) center/contain no-repeat}
+.mark{width:19px;height:34px;flex:none;background:var(--green);-webkit-mask:url(images/foto-002.png) center/contain no-repeat;mask:url(images/foto-002.png) center/contain no-repeat}
 nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{text-decoration:none;font-size:15px;font-weight:500;padding:6px 10px;border-radius:999px;color:var(--muted);flex:none}
 nav a:hover{background:var(--surface);color:var(--ink)}
+nav a.active{background:var(--hero);color:var(--green-d)}
 header .wrap{max-width:1700px}
 .search-btn{order:2;flex:none;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--green-d);cursor:pointer}
 .search-btn:hover{background:var(--surface)}
@@ -204,6 +206,10 @@ dialog.gal-dialog{width:min(920px,calc(100vw - 32px))}
 .pcard img{object-position:50% 10%}
 .pcard h3{font-size:21px;margin:20px 22px 6px}
 .role{align-self:flex-start;margin:0 22px 12px;font-size:13px;font-weight:700;color:var(--green-d);background:var(--hero);padding:3px 11px;border-radius:999px}
+.phead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;margin:18px 0 12px}
+.people{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.phead h3,.pcard .phead h3{margin:0}
+.phead .role{margin:0;align-self:center;margin-left:auto;text-align:right}
 .pcard p{margin:0 22px 18px;font-size:14.5px;line-height:1.6}
 .plinks{margin:0 22px 22px;padding-top:14px;border-top:1px solid var(--line)}
 .plinks li{min-width:0}.plinks a{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:14.5px}
@@ -241,6 +247,110 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   .teams-head{grid-template-columns:1fr;gap:0}.spike{height:250px;margin:0 auto 24px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.watch{position:relative;overflow:hidden}
+.watch .vb{position:absolute;left:-26px;top:50%;margin-top:-11px;font-size:18px;line-height:1;opacity:0;pointer-events:none}
+.watch:hover .vb,.watch:focus-visible .vb{opacity:1;animation:vbfly 1.5s linear infinite}
+@keyframes vbfly{0%{left:-26px;transform:translateY(0) rotate(0)}25%{transform:translateY(-9px) rotate(90deg)}50%{transform:translateY(0) rotate(180deg)}75%{transform:translateY(-9px) rotate(270deg)}100%{left:calc(100% + 6px);transform:translateY(0) rotate(360deg)}}
+@keyframes vbb{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(180deg)}}
+.partners{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.partners h3{margin:0 0 6px;font-size:22px;color:var(--green-d)}
+.partners>p{margin:0 0 18px;color:var(--muted)}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+@media (max-width:420px){.pt-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.pt-logo{height:120px}}
+.pt-card{color:inherit;text-decoration:none;transition:box-shadow .2s,transform .2s,border-color .2s;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg)}
+a.pt-card:hover,a.pt-card:focus-visible{border-color:var(--green);box-shadow:0 8px 22px rgba(0,0,0,.12);transform:translateY(-3px)}
+.pt-logo{background:#fff;height:150px;position:relative;flex:none}
+.pt-logo img{position:absolute;left:14px;top:14px;width:calc(100% - 28px);height:calc(100% - 28px);max-width:none;object-fit:contain}
+.pt-card span{padding:12px 14px;font-weight:700;font-size:15px;text-align:center;line-height:1.3;border-top:1px solid var(--line);flex:1;display:grid;place-items:center}
+dialog.lg-dialog{width:min(1120px,calc(100vw - 32px))}
+.mxd{display:grid;gap:8px;margin:14px 0 0}
+.mxd .mx-note{margin:0 0 4px;font-weight:800;color:var(--green-d)}
+.mx-g{display:grid;grid-template-columns:64px minmax(0,1fr);gap:6px 10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.mx-g time{font-weight:800;color:var(--green-d);font-size:15px}
+.mx-m{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-weight:700}
+.mx-m .tlogo{width:34px;height:34px;border-width:1px}
+.tlogo .tl-ini{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.02em}
+.mx-m .tlogo .tl-ini{font-size:12px}
+.mx-m .vs{color:var(--muted);font-weight:700}
+.mx-t{display:inline-flex;align-items:center;gap:8px}
+.mx-txt{font-weight:700}
+.sc-day{margin:0 0 22px}
+.sc-day h4{margin:0 0 2px;font-size:19px;color:var(--green-d)}
+.sc-day .sc-sub{margin:0 0 6px;color:var(--muted);font-size:15px}
+.sc-rt{margin:26px 0 10px;padding:8px 14px;border-radius:10px;background:var(--green);color:var(--on-green);font-size:18px}
+.sc-rt:first-child{margin-top:0}
+dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
+@media (max-width:520px){.mx-g{grid-template-columns:1fr}}
+
+.lg-poster{display:block;width:100%;height:auto;border-radius:14px}
+.lg-top{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between}
+.lg-top p{margin:0}.lg-top a{color:var(--green-d)}
+.lg-top .lg-sched{color:var(--green);font-weight:800;font-size:20px;text-decoration:underline}
+.lg-top small{display:block;color:var(--muted)}
+.lg-teams{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.lg-teams li{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;font-weight:700}
+.lg-teams .num{color:var(--green-d);min-width:1.4em}
+.tlogo{width:56px;height:56px;border-radius:50%;border:2px dashed var(--line);flex:none;display:grid;place-items:center;overflow:hidden;background:var(--bg)}
+.tlogo img{width:100%;height:100%;object-fit:contain}
+.lg-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:start}
+.tbl-wrap{overflow-x:auto}
+.lg-t{border-collapse:collapse;width:100%;font-size:14.5px}
+.lg-t th,.lg-t td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+.lg-t thead th{background:var(--green);color:var(--on-green)}
+.lg-t th.rowh,.lg-t td.nm{text-align:left;white-space:nowrap}
+.lg-t td.diag{background:var(--surface);color:var(--muted)}
+.lg-t td.nm .tlogo,.lg-t th.rowh .tlogo{display:inline-grid;vertical-align:middle;margin-right:8px;width:26px;height:26px;border-width:1px}
+.lg-rule{font-size:13px;margin:8px 0 0!important}
+.popout{position:fixed;right:0;bottom:calc(28px + env(safe-area-inset-bottom,0px));z-index:30;transform:translateX(110%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.9,.3,1),visibility 0s .5s}
+.popout.show{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.2,.9,.3,1)}
+.po-go{display:flex;align-items:center;gap:12px;font:inherit;text-align:left;cursor:pointer;border:0;background:var(--green);color:var(--on-green);padding:14px 22px 14px 18px;border-radius:16px 0 0 16px;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.po-go b{display:block;font-size:16px;letter-spacing:.02em}.po-go small{display:block;font-size:13px;opacity:.9}
+.po-ball{font-size:28px;display:inline-block;animation:vbb 1.4s ease-in-out infinite}
+.po-x{position:absolute;top:-10px;left:-10px;width:28px;height:28px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.3);cursor:pointer;font-size:18px;line-height:1;padding:0 0 2px}
+@media (max-width:860px){.lg-grid{grid-template-columns:1fr}}
+@media (max-width:720px){.popout{bottom:calc(16px + env(safe-area-inset-bottom,0px))}.po-go{padding:10px 16px 10px 14px}.po-ball{font-size:22px}}
+@media (prefers-reduced-motion:reduce){.po-ball,.watch:hover .vb{animation:none}.popout,.popout.show{transition:none}}
+.pr-rounds{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pr-r{font:inherit;font-weight:700;padding:8px 18px;border-radius:999px;border:2px solid var(--green);background:transparent;color:var(--green-d);cursor:pointer}
+.pr-r.on{background:var(--green);color:var(--on-green)}
+.pr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:8px;margin-bottom:16px}
+.pr-m{display:flex;align-items:center;justify-content:space-between;gap:10px;font:inherit;font-weight:700;text-align:center;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);cursor:pointer}
+.pr-m.on{border-color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
+.pr-m .tlogo{width:38px;height:38px;border-width:1px}
+.pr-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.pr-top{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center}
+.pr-side{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pr-side .tlogo{width:80px;height:80px}
+.pr-pc{font-size:26px;font-weight:800;color:var(--green-d)}
+.pr-mid small{display:block;color:var(--muted);font-size:13px}
+.pr-mid b{display:block;font-size:40px;line-height:1.1;color:var(--green-d);white-space:nowrap}
+.pr-bar{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:16px 0 12px;background:var(--line)}
+.pr-bar span:first-child{background:var(--green)}.pr-bar span:last-child{background:#2f5f8f}
+.pr-win{text-align:center;font-weight:800;margin:0 0 10px!important;color:var(--ink)!important}
+.pr-facts{margin:0 0 10px;padding-left:18px;color:var(--muted);font-size:14.5px}
+.pr-note{font-size:12.5px;color:var(--muted);margin:10px 0 0!important}
+.pr-chip{display:inline-block;font-size:13px;font-weight:700;color:var(--green-d);background:var(--hero);padding:3px 11px;border-radius:999px}
+@media (max-width:560px){.pr-top{grid-template-columns:1fr 1fr}.pr-mid{grid-column:1/-1;order:-1}}
+.pr-sel{display:grid;grid-template-columns:minmax(160px,.6fr) minmax(220px,1.4fr);gap:12px;margin-bottom:12px}
+.pr-sel label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.pr-sel select{font:inherit;font-size:16px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;width:100%}
+.pr-sel select:disabled{opacity:.6;cursor:not-allowed}
+.pr-hint{margin:0 0 4px!important;color:var(--muted);font-size:14.5px}
+.pr-card:empty{display:none}
+@media (max-width:560px){.pr-sel{grid-template-columns:1fr}}
+.dd-wrap{display:flex;flex-direction:column;gap:4px}
+.dd-lab{font-size:13px;font-weight:700;color:var(--muted)}
+.dd{position:relative}
+.dd-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;font:inherit;font-size:16px;text-align:left;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.dd-btn:hover:not(:disabled),.dd-btn[aria-expanded="true"]{border-color:var(--green)}
+.dd-btn:disabled{opacity:.6;cursor:not-allowed}
+.dd-arr{color:var(--green)}
+.dd-list{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;margin:0;padding:6px;list-style:none;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.18);max-height:280px;overflow:auto}
+.dd-list[hidden]{display:none}
+.dd-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:500}
+.dd-list li:hover,.dd-list li:focus-visible{background:var(--hero);color:var(--green-d);outline:none}
+.dd-list li.sel{background:var(--green);color:var(--on-green)}
+.dd-list .tlogo{width:30px;height:30px;border-width:1px}
 </style>
 </head>
 <body>
@@ -275,7 +385,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <div class="stage">
       <div class="disc"></div>
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="52" r="49"/><circle cx="50" cy="52" r="55"/></svg>
-      <img src="images/maisiagalos-sporto-simbolis-juodoji-pantera-z.webp" alt="Maišiagalos sporto simbolis – juodoji pantera žaliais marškinėliais, mojuojanti ranka" width="620" height="611">
+      <img src="images/foto-003.webp" alt="Maišiagalos sporto simbolis – juodoji pantera žaliais marškinėliais, mojuojanti ranka" width="620" height="611">
     </div>
   </div>
 </div>
@@ -295,7 +405,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
         </div>
       </div>
     </div>
-    <figure class="photo"><img src="images/maisiagalos-sportas-komanda-zaliais-firminiai.webp" alt="Maišiagalos sportas komanda žaliais firminiais marškinėliais" width="800" height="999" loading="lazy"></figure>
+    <figure class="photo"><img src="images/foto-004.webp" alt="Maišiagalos sportas komanda žaliais firminiais marškinėliais" width="800" height="999" loading="lazy"></figure>
   </div>
 </section>
 
@@ -306,13 +416,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
         <h2>Sportinės rinktinės</h2>
         <p class="lead">Mūsų komandos atstovauja Maišiagalai regioniniuose ir šalies čempionatuose. Komandas sudaro stipriausi ir veiklose aktyviausiai dalyvaujantys sportininkai.</p>
       </div>
-      <img class="spike" src="images/maisiagalos-sporto-simbolis-pantera-smeigia-t.webp" alt="Maišiagalos sporto simbolis – pantera smeigia tinklinio kamuolį" width="413" height="620">
+      <img class="spike" src="images/foto-005.webp" alt="Maišiagalos sporto simbolis – pantera smeigia tinklinio kamuolį" width="413" height="620">
     </div>
     <div class="teams">
-      <article class="card team"><img class="round" src="images/fk-biciuliai-ms-logotipas.webp" alt="FK BIČIULIAI-MS logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>FK BIČIULIAI-MS</h3><p>Futbolo komanda</p><button type="button" class="btn sm" data-team="fk">Susipažink</button></article>
-      <article class="card team"><img src="images/mstr-logotipas.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mv">Susipažink</button></article>
-      <article class="card team"><img src="images/mstr-logotipas-2.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Merginos</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mm">Susipažink</button></article>
-      <article class="card team"><img src="images/mskr-logotipas.webp" alt="MSKR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSKR</h3><p>Krepšinio komanda</p><button type="button" class="btn sm" data-team="kv">Susipažink</button></article>
+      <article class="card team"><img class="round" src="images/foto-006.webp" alt="FK BIČIULIAI-MS logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>FK BIČIULIAI-MS</h3><p>Futbolo komanda</p><button type="button" class="btn sm" data-team="fk">Susipažink</button></article>
+      <article class="card team"><img src="images/foto-007.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mv">Susipažink</button></article>
+      <article class="card team"><img src="images/foto-008.webp" alt="MSTR logotipas" width="72" height="72"><span class="tag">Merginos</span><h3>MSTR</h3><p>Tinklinio komanda</p><button type="button" class="btn sm" data-team="mm">Susipažink</button></article>
+      <article class="card team"><img src="images/foto-009.webp" alt="MSKR logotipas" width="72" height="72"><span class="tag">Vaikinai</span><h3>MSKR</h3><p>Krepšinio komanda</p><button type="button" class="btn sm" data-team="kv">Susipažink</button></article>
     </div>
   </div>
 </section>
@@ -341,7 +451,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
       <div class="cal-grid" id="cal-grid"></div>
       <ul class="cal-legend" id="cal-legend"></ul>
       <ul class="cal-list" id="cal-list"></ul>
-      <a class="partner" href="https://vrsc.lt" target="_blank" rel="noopener noreferrer"><img src="images/vilniaus-rajono-sporto-centras-vrsc.webp" alt="Vilniaus rajono sporto centras (VRSC)" loading="lazy"><span><b>Daugiau sporto renginių Vilniaus rajone</b><small>Paspauskite ir aplankykite Vilniaus rajono sporto centro svetainę</small></span></a>
+      <a class="partner" href="https://vrsc.lt" target="_blank" rel="noopener noreferrer"><img src="images/foto-010.webp" alt="Vilniaus rajono sporto centras (VRSC)" loading="lazy"><span><b>Daugiau sporto renginių Vilniaus rajone</b><small>Paspauskite ir aplankykite Vilniaus rajono sporto centro svetainę</small></span></a>
     </div>
   </div>
 </section>
@@ -379,7 +489,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
         <p>Moksleiviams, kurie padeda mūsų renginiuose, suteikiame pilietines socialines valandas. Tai galimybė įgyti patirties, prisidėti prie bendruomenės ir atlikti socialinę pilietinę veiklą.</p>
         <a class="btn" href="#kontaktai">Domėtis galimybėmis</a>
       </div>
-      <img src="images/maisiagalos-sporto-simbolis-pantera-su-fotoap.webp" alt="Maišiagalos sporto simbolis – pantera su fotoaparatu" width="623" height="560" loading="lazy">
+      <img src="images/foto-011.webp" alt="Maišiagalos sporto simbolis – pantera su fotoaparatu" width="623" height="560" loading="lazy">
     </div>
   </div>
 </section>
@@ -390,13 +500,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <p class="lead">Susipažinkite su mūsų komanda ir rašykite tiesiogiai tam, kas jums reikalingas.</p>
     <div class="cmain"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Bendras el. paštas</small><a href="mailto:maisiagalossportas@gmail.com">maisiagalossportas@gmail.com</a></div></div>
     <div class="people">
-      <article class="card pcard"><div class="ph"><img src="images/arturas.webp" alt="Artūras" loading="lazy"></div><h3>Artūras</h3><span class="role">Veiklų kuratorius</span><p>Maišiagalos sporto komandos narys, visų vykstančių veiklų ir sportinių komandų kuratorius. Prisideda prie veiklų ir renginių organizavimo bei bendros komunikacijos. FK „Bičiuliai – MS“ žaidėjas. Rūpinasi, kad kiekviena veikla vyktų sklandžiai, o komandos jaustųsi palaikomos.</p><ul class="plinks"><li><a href="mailto:babelisarturas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>babelisarturas@gmail.com</a></li><li><a href="tel:+37067617381"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 676 17381</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/darius.webp" alt="Darius" loading="lazy"></div><h3>Darius</h3><span class="role">Organizavimas ir komunikacija</span><p>Maišiagalos sporto komandos narys, prisidedantis prie sprendimų priėmimo, renginių apipavidalinimo, organizavimo ir komunikacijos bei dekoracijų gaminimo. Idėjų ir darbštumo jam nestinga: dažnai jis atsiranda ten, kur reikia rankų ir sprendimų.</p><ul class="plinks"><li><a href="mailto:darekbilat30@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>darekbilat30@gmail.com</a></li><li><a href="tel:+37064663731"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 646 63 731</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/ernestas.webp" alt="Ernestas" loading="lazy"></div><h3>Ernestas</h3><span class="role">Renginių tvarka</span><p>Maišiagalos sporto komandos narys, aktyviai dalyvaujantis renginiuose ir prižiūrintis jų eigos tvarką. FK „Bičiuliai – MS“ žaidėjas, prisidedantis prie klausimų sprendimo ir renginių apipavidalinimo. Savo ramybe ir atsakingumu padeda renginiams vykti sklandžiai.</p><ul class="plinks"><li><a href="mailto:ernissalietis@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ernissalietis@gmail.com</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/paulina.webp" alt="Paulina" loading="lazy"></div><h3>Paulina</h3><span class="role">Mobilių veiklų kuratorė</span><p>Maišiagalos sporto komandos narė, prisidedanti prie klausimų sprendimo, renginių organizavimo ir dekoracijų gaminimo. MSTR žaidėja ir Mobilių veiklų kuratorė. Su jos kūrybiškumu kiekvienas renginys tampa jaukesnis ir šventiškesnis.</p><ul class="plinks"><li><a href="mailto:paulabarcenko@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>paulabarcenko@gmail.com</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/laurynas.webp" alt="Laurynas" loading="lazy"></div><h3>Laurynas</h3><span class="role">Futbolo treneris</span><p>Maišiagalos sporto komandos narys, FK „Bičiuliai – MS“ žaidėjas ir individualių futbolo treniruočių treneris, turintis LFF D licenciją. FK „Grakai“ įkūrėjas. Dalyvauja priimant sprendimus ir organizuojant renginius. Futbolas jam – gyvenimo būdas.</p><ul class="plinks"><li><a href="mailto:zizaslaurynas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>zizaslaurynas@gmail.com</a></li><li><a href="tel:+37061701036"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 617 01036</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/dziugas.webp" alt="Džiugas" loading="lazy"></div><h3>Džiugas</h3><span class="role">Mobilių veiklų vedėjas</span><p>Maišiagalos sporto komandos narys, MSKR žaidėjas ir Mobilių veiklų vedėjas. Prie sprendimų priėmimo prisideda sveiku, kritišku požiūriu, o prie renginių – aktyviu dalyvavimu. Dažnai atsako už techninius dalykus, pavyzdžiui, tiesiogines transliacijas (LIVE) ir grupės moderavimą.</p><ul class="plinks"><li><a href="mailto:dziugas.tomasiunas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>dziugas.tomasiunas@gmail.com</a></li></ul></article>
-      <article class="card pcard"><div class="ph"><img src="images/mahu.webp" alt="MaHu" loading="lazy"></div><h3>MaHu</h3><span class="role">Sporto simbolis</span><p>Maišiagalos sporto simbolis, prisidedantis prie mūsų visų žaismingumo ir teigiamų emocijų. MaHu visada šalia: renginiuose, nuotraukose ir pergalių šventėse.</p></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-012.webp" alt="Artūras" loading="lazy"></div><div class="phead"><h3>Artūras</h3><span class="role">MS vadovas</span></div><p>Maišiagalos sporto komandos narys, visų vykstančių veiklų ir sportinių komandų kuratorius. Prisideda prie veiklų ir renginių organizavimo bei bendros komunikacijos. FK „Bičiuliai – MS“ žaidėjas. Rūpinasi, kad kiekviena veikla vyktų sklandžiai, o komandos jaustųsi palaikomos.</p><ul class="plinks"><li><a href="mailto:babelisarturas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>babelisarturas@gmail.com</a></li><li><a href="tel:+37067617381"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 676 17381</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-013.webp" alt="Darius" loading="lazy"></div><div class="phead"><h3>Darius</h3><span class="role">Organizavimas ir komunikacija</span></div><p>Maišiagalos sporto komandos narys, prisidedantis prie sprendimų priėmimo, renginių apipavidalinimo, organizavimo ir komunikacijos bei dekoracijų gaminimo. Idėjų ir darbštumo jam nestinga: dažnai jis atsiranda ten, kur reikia rankų ir sprendimų.</p><ul class="plinks"><li><a href="mailto:darekbilat30@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>darekbilat30@gmail.com</a></li><li><a href="tel:+37064663731"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 646 63 731</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-014.webp" alt="Ernestas" loading="lazy"></div><div class="phead"><h3>Ernestas</h3><span class="role">Renginių tvarka</span></div><p>Maišiagalos sporto komandos narys, aktyviai dalyvaujantis renginiuose ir prižiūrintis jų eigos tvarką. FK „Bičiuliai – MS“ žaidėjas, prisidedantis prie klausimų sprendimo ir renginių apipavidalinimo. Savo ramybe ir atsakingumu padeda renginiams vykti sklandžiai.</p><ul class="plinks"><li><a href="mailto:ernissalietis@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ernissalietis@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-015.webp" alt="Paulina" loading="lazy"></div><div class="phead"><h3>Paulina</h3><span class="role">Mobilių veiklų kuratorė</span></div><p>Maišiagalos sporto komandos narė, prisidedanti prie klausimų sprendimo, renginių organizavimo ir dekoracijų gaminimo. MSTR žaidėja ir Mobilių veiklų kuratorė. Su jos kūrybiškumu kiekvienas renginys tampa jaukesnis ir šventiškesnis.</p><ul class="plinks"><li><a href="mailto:paulabarcenko@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>paulabarcenko@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-016.webp" alt="Laurynas" loading="lazy"></div><div class="phead"><h3>Laurynas</h3><span class="role">Futbolo treneris</span></div><p>Maišiagalos sporto komandos narys, FK „Bičiuliai – MS“ žaidėjas ir individualių futbolo treniruočių treneris, turintis LFF D licenciją. FK „Grakai“ įkūrėjas. Dalyvauja priimant sprendimus ir organizuojant renginius. Futbolas jam – gyvenimo būdas.</p><ul class="plinks"><li><a href="mailto:zizaslaurynas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>zizaslaurynas@gmail.com</a></li><li><a href="tel:+37061701036"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+370 617 01036</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-017.webp" alt="Džiugas" loading="lazy"></div><div class="phead"><h3>Džiugas</h3><span class="role">Mobilių veiklų vedėjas</span></div><p>Maišiagalos sporto komandos narys, MSKR žaidėjas ir Mobilių veiklų vedėjas. Prie sprendimų priėmimo prisideda sveiku, kritišku požiūriu, o prie renginių – aktyviu dalyvavimu. Dažnai atsako už techninius dalykus, pavyzdžiui, tiesiogines transliacijas (LIVE) ir grupės moderavimą.</p><ul class="plinks"><li><a href="mailto:dziugas.tomasiunas@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>dziugas.tomasiunas@gmail.com</a></li></ul></article>
+      <article class="card pcard"><div class="ph"><img src="images/foto-018.webp" alt="MaHu" loading="lazy"></div><div class="phead"><h3>MaHu</h3><span class="role">Sporto simbolis</span></div><p>Maišiagalos sporto simbolis, prisidedantis prie mūsų visų žaismingumo ir teigiamų emocijų. MaHu visada šalia: renginiuose, nuotraukose ir pergalių šventėse.</p></article>
     </div>
   </div>
 </section>
@@ -406,13 +516,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <h2>Maišiagalos būreliai</h2>
     <p class="lead">Veiklos ir būreliai, kuriuos galite rasti Maišiagaloje ir jos apylinkėse. Spauskite „Domėtis“, kad pamatytumėte daugiau.</p>
     <div class="clubs">
-      <article class="card ccard"><div class="lg"><img src="images/ms-individualios-futbolo-treniruotes-logotipa.webp" alt="MS individualios futbolo treniruotės logotipas" loading="lazy"></div><h3>MS individualios futbolo treniruotės</h3><button type="button" class="btn sm" data-svc="futbolas">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/sokiu-kolektyvas-przyja-logotipas.webp" alt="Šokių kolektyvas „Przyjaźń“ logotipas" loading="lazy"></div><h3>Šokių kolektyvas „Przyjaźń“</h3><button type="button" class="btn sm" data-club="prz">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/baleto-studija-baletas-jums-logotipas.webp" alt="Baleto studija „Baletas JUMS“ logotipas" loading="lazy"></div><h3>Baleto studija „Baletas JUMS“</h3><button type="button" class="btn sm" data-club="bal">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/karate-mokykla-senshi-logotipas.webp" alt="Karatė mokykla „Senshi“ logotipas" loading="lazy"></div><h3>Karatė mokykla „Senshi“</h3><button type="button" class="btn sm" data-club="sen">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/vilnius-social-club-logotipas.webp" alt="Vilnius Social Club logotipas" loading="lazy"></div><h3>Vilnius Social Club</h3><button type="button" class="btn sm" data-club="vsc">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/bokso-klubas-olimpinis-ringas-logotipas.webp" alt="Bokso klubas „Olimpinis ringas“ logotipas" loading="lazy"></div><h3>Bokso klubas „Olimpinis ringas“</h3><button type="button" class="btn sm" data-club="box">Domėtis</button></article>
-      <article class="card ccard"><div class="lg"><img src="images/fa-transinvest-logotipas.webp" alt="FA „TransINVEST“ logotipas" loading="lazy"></div><h3>FA „TransINVEST“</h3><button type="button" class="btn sm" data-club="fa">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-019.webp" alt="MS individualios futbolo treniruotės logotipas" loading="lazy"></div><h3>MS individualios futbolo treniruotės</h3><button type="button" class="btn sm" data-svc="futbolas">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-020.webp" alt="Šokių kolektyvas „Przyjaźń“ logotipas" loading="lazy"></div><h3>Šokių kolektyvas „Przyjaźń“</h3><button type="button" class="btn sm" data-club="prz">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-021.webp" alt="Baleto studija „Baletas JUMS“ logotipas" loading="lazy"></div><h3>Baleto studija „Baletas JUMS“</h3><button type="button" class="btn sm" data-club="bal">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-022.webp" alt="Karatė mokykla „Senshi“ logotipas" loading="lazy"></div><h3>Karatė mokykla „Senshi“</h3><button type="button" class="btn sm" data-club="sen">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-023.webp" alt="Vilnius Social Club logotipas" loading="lazy"></div><h3>Vilnius Social Club</h3><button type="button" class="btn sm" data-club="vsc">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-024.webp" alt="Bokso klubas „Olimpinis ringas“ logotipas" loading="lazy"></div><h3>Bokso klubas „Olimpinis ringas“</h3><button type="button" class="btn sm" data-club="box">Domėtis</button></article>
+      <article class="card ccard"><div class="lg"><img src="images/foto-025.webp" alt="FA „TransINVEST“ logotipas" loading="lazy"></div><h3>FA „TransINVEST“</h3><button type="button" class="btn sm" data-club="fa">Domėtis</button></article>
     </div>
   </div>
 </section>
@@ -423,6 +533,26 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <div class="support">
       <div class="card"><h3>Rekvizitai</h3><dl><dt>Gavėjas</dt><dd>VšĮ „Maišiagalos sportas“</dd><dt>Įmonės kodas</dt><dd>307511559</dd><dt>Banko sąskaita</dt><dd>LT62 7044 0901 1563 3990</dd><dt>Paskirtis</dt><dd>Parama sportui</dd></dl></div>
       <div class="card"><h3>Kaip galite padėti</h3><p>Paremti galite finansiškai, prisidėdami prie komandų aprangos ir inventoriaus, renginių organizavimo ar savanoriaudami. Susisiekite su mumis ir aptarsime, kaip galite padėti.</p><a class="btn" href="#kontaktai">Susisiekite su mumis</a></div>
+    </div>
+    <div class="partners" id="partneriai">
+      <h3>Draugai ir partneriai</h3>
+      <p>Dėkojame visiems, kurie bendradarbiauja su mumis ir kartu kuria Maišiagalos sportą.</p>
+      <div class="pt-grid">
+        <a class="pt-card" href="https://www.facebook.com/groups/531083190043479/" target="_blank" rel="noopener noreferrer" aria-label="Bokso klubas „Olimpinis ringas“ – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-026.webp" alt="Bokso klubas „Olimpinis ringas“" loading="lazy"></div><span>Bokso klubas „Olimpinis ringas“</span></a>
+        <a class="pt-card" href="https://fktransinvest.lt/" target="_blank" rel="noopener noreferrer" aria-label="FA „TransINVEST“ – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-025.webp" alt="FA „TransINVEST“" loading="lazy"></div><span>FA „TransINVEST“</span></a>
+        <a class="pt-card" href="https://www.facebook.com/profile.php?id=61587112262065" target="_blank" rel="noopener noreferrer" aria-label="FK GRAKAI – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-027.webp" alt="FK GRAKAI" loading="lazy"></div><span>FK GRAKAI</span></a>
+        <a class="pt-card" href="https://www.ldkalgirdo.vilniausr.lm.lt/" target="_blank" rel="noopener noreferrer" aria-label="Lietuvos Maišiagalos Didižiojo kunigaikščio Algirdos gimnazija – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-028.webp" alt="Lietuvos Maišiagalos Didižiojo kunigaikščio Algirdos gimnazija" loading="lazy"></div><span>Lietuvos Maišiagalos Didižiojo kunigaikščio Algirdos gimnazija</span></a>
+        <a class="pt-card" href="https://www.joma-sport.com" target="_blank" rel="noopener noreferrer" aria-label="Joma Sport – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-029.webp" alt="Joma Sport" loading="lazy"></div><span>Joma Sport</span></a>
+        <a class="pt-card" href="https://www.facebook.com/p/Mai%C5%A1iagalos-seni%C5%ABnijaGmina-Mejszago%C5%82a-100078154944348/" target="_blank" rel="noopener noreferrer" aria-label="Maišiagalos seniūnija – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-030.webp" alt="Maišiagalos seniūnija" loading="lazy"></div><span>Maišiagalos seniūnija</span></a>
+        <a class="pt-card" href="https://www.facebook.com/p/Nemen%C4%8Din%C4%97s-kult%C5%ABros-centras-100064551861829/" target="_blank" rel="noopener noreferrer" aria-label="NKC - Maišiagalos skyrius – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-031.webp" alt="NKC - Maišiagalos skyrius" loading="lazy"></div><span>NKC - Maišiagalos skyrius</span></a>
+        <a class="pt-card" href="https://www.facebook.com/p/Pukutis-100069830451814/" target="_blank" rel="noopener noreferrer" aria-label="Pukutis – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-032.webp" alt="Pukutis" loading="lazy"></div><span>Pukutis</span></a>
+        <div class="pt-card"><div class="pt-logo"><img src="images/foto-033.webp" alt="SPECJUMS" loading="lazy"></div><span>SPECJUMS</span></div>
+        <a class="pt-card" href="https://www.facebook.com/sportnetas/" target="_blank" rel="noopener noreferrer" aria-label="Sportnetas – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-034.webp" alt="Sportnetas" loading="lazy"></div><span>Sportnetas</span></a>
+        <a class="pt-card" href="https://www.obrembskio.vilniausr.lm.lt/" target="_blank" rel="noopener noreferrer" aria-label="Vilniaus r. Maišiagalos kun. Juzefo Obrembskio gimnazija – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-035.webp" alt="Vilniaus r. Maišiagalos kun. Juzefo Obrembskio gimnazija" loading="lazy"></div><span>Vilniaus r. Maišiagalos kun. Juzefo Obrembskio gimnazija</span></a>
+        <a class="pt-card" href="https://www.vrsa.lt" target="_blank" rel="noopener noreferrer" aria-label="Vilniaus rajono savivaldybė – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-036.webp" alt="Vilniaus rajono savivaldybė" loading="lazy"></div><span>Vilniaus rajono savivaldybė</span></a>
+        <a class="pt-card" href="https://vrsc.lt/" target="_blank" rel="noopener noreferrer" aria-label="Vilniaus rajono sporto centras – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-037.webp" alt="Vilniaus rajono sporto centras" loading="lazy"></div><span>Vilniaus rajono sporto centras</span></a>
+        <a class="pt-card" href="https://vilniussocialclub.lt/" target="_blank" rel="noopener noreferrer" aria-label="Vilnius Social Club – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-038.webp" alt="Vilnius Social Club" loading="lazy"></div><span>Vilnius Social Club</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -444,13 +574,42 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <dialog class="team-dialog" id="svc-dialog" aria-labelledby="svc-title">
   <div class="dlg-head"><div><h3 id="svc-title">Privačios futbolo treniruotės</h3><p>Individualios treniruotės Maišiagaloje</p></div><button type="button" class="dlg-x" id="svc-close" aria-label="Uždaryti">&times;</button></div>
   <div class="dlg-body">
-    <img class="svc-poster" id="svc-poster" src="images/individualiu-futbolo-treniruociu-maisiagaloje.webp" alt="Individualių futbolo treniruočių Maišiagaloje skelbimas">
+    <img class="svc-poster" id="svc-poster" src="images/foto-039.webp" alt="Individualių futbolo treniruočių Maišiagaloje skelbimas">
     <div><h4>Apie treniruotes</h4><p>Individualios futbolo treniruotės su asmeniniu treneriu: individualus dėmesys, technikos tobulinimas, pasitikėjimo ir žaidimo suvokimo ugdymas.</p></div>
     <div><h4>Informacija</h4>
       <dl><dt>Treneris</dt><dd>Laurynas Zizas</dd><dt>Patirtis</dt><dd>12 metų futbole</dd><dt>Vieta</dt><dd>Maišiagala</dd><dt>Kaina</dt><dd>20 € / val.</dd><dt>Telefonas</dt><dd><a href="tel:+37061701036">+370 617 01036</a></dd><dt>El. paštas</dt><dd><a href="mailto:zizaslaurynas@gmail.com">zizaslaurynas@gmail.com</a></dd></dl>
     </div>
   </div>
 </dialog>
+
+<dialog class="team-dialog lg-dialog" id="lg-dialog" aria-labelledby="lg-title">
+  <div class="dlg-head"><div><h3 id="lg-title">MIX Tinklinio lygos 3-asis sezonas</h3><p>Pradžia: 2026 m. gruodžio 5 d.</p></div><button type="button" class="dlg-x" id="lg-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body">
+    <img class="lg-poster" id="lg-poster" src="" alt="MIX tinklinio lyga – 3 sezonas, gruodžio 5 d.">
+    <div class="lg-top">
+      <p>Registracija telefonu <a href="tel:+37067617381">+370 676 17381</a> arba paštu <a href="mailto:maisiagalossportas@gmail.com">maisiagalossportas@gmail.com</a></p>
+      <div><a href="#" class="lg-sched" id="lg-sched">Tvarkaraštis</a></div>
+    </div>
+    <div><h4>Komandos</h4><ol class="lg-teams" id="lg-teams"></ol></div>
+    <div class="pr"><h4>Rungtynių prognozė</h4>
+      <div class="pr-sel">
+        <div class="dd-wrap"><span class="dd-lab">Ratas</span><div class="dd" id="dd-round"><button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"><span class="dd-val">Pasirinkite ratą</span><span class="dd-arr" aria-hidden="true">&#9662;</span></button><ul class="dd-list" role="listbox" hidden></ul></div></div>
+        <div class="dd-wrap"><span class="dd-lab">Pasirinkto rato varžybos</span><div class="dd" id="dd-match"><button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false" disabled><span class="dd-val">Pirmiausia pasirinkite ratą</span><span class="dd-arr" aria-hidden="true">&#9662;</span></button><ul class="dd-list" role="listbox" hidden></ul></div></div>
+      </div>
+      <p class="pr-hint" id="pr-hint">Pasirinkite ratą ir varžybas, kad pamatytumėte prognozę.</p>
+      <div class="pr-card" id="pr-card" aria-live="polite"></div>
+    </div>
+    <div class="lg-grid">
+      <div><h4>Turnyrinė lentelė</h4><div class="tbl-wrap" id="lg-cross"></div></div>
+      <div><h4>Taškai ir vietos</h4><div class="tbl-wrap" id="lg-stand"></div><p class="lg-rule">Esant vienodam taškų skaičiui aukščiau eina komanda, turinti daugiau laimėtų padavimų.</p><p class="lg-rule">Trečio (papildomo) seto taškai nesumuojami.</p></div>
+    </div>
+  </div>
+</dialog>
+<dialog class="team-dialog sc-dialog" id="sc-dialog" aria-labelledby="sc-title">
+  <div class="dlg-head"><div><h3 id="sc-title">MIX Tinklinio lygos tvarkaraštis</h3><p>3-asis sezonas · 2026 m. gruodžio 5 d. – 2027 m. kovo 13 d.</p></div><button type="button" class="dlg-x" id="sc-close" aria-label="Uždaryti">&times;</button></div>
+  <div class="dlg-body" id="sc-body"></div>
+</dialog>
+<aside class="popout" id="popout" aria-label="MIX lyga"><button type="button" class="po-x" id="po-x" aria-label="Uždaryti">&times;</button><button type="button" class="po-go" id="po-go"><span class="po-ball" aria-hidden="true">🏐</span><span><b>Stebėk MIX LYGĄ</b><small>3 sezonas · gruodžio 5 d.</small></span></button></aside>
 
 <dialog class="team-dialog gal-dialog" id="gal-dialog" aria-labelledby="gal-title">
   <div class="dlg-head"><div><h3 id="gal-title"></h3><p id="gal-meta"></p></div><button type="button" class="dlg-x" id="gal-close" aria-label="Uždaryti">&times;</button></div>
@@ -503,10 +662,10 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     kv:['MSKR','Krepšinio komanda','MSKR – Maišiagalos sporto krepšinio rinktinė – jauniausia Maišiagalos sporto komanda. 2026 m. balandžio 14 d. ji debiutavo Vilniaus krepšinio III lygoje ir atstovauja Maišiagalai krepšinio varžybose, plėsdama krepšinio veiklą savo krašte.','Krepšinis','Vaikinai']
   };
   var P={
-    fk:['images/foto-01.webp','FK BIČIULIAI-MS futbolo komanda su medaliais, taure ir Maišiagalos sporto vėliava'],
-    mv:['images/foto-02.webp','Maišiagalos sportas vaikinų tinklinio komanda MSTR žaliomis ir baltomis aprangomis'],
-    mm:['images/foto-03.webp','Maišiagalos sportas merginų tinklinio komanda MSTR salėje po tinkliniu tinklu'],
-    kv:['images/foto-04.webp','Maišiagalos sportas vaikinų krepšinio komanda MSKR su treneriais']
+    fk:['images/foto-040.webp','FK BIČIULIAI-MS futbolo komanda su medaliais, taure ir Maišiagalos sporto vėliava'],
+    mv:['images/foto-041.webp','Maišiagalos sportas vaikinų tinklinio komanda MSTR žaliomis ir baltomis aprangomis'],
+    mm:['images/foto-042.webp','Maišiagalos sportas merginų tinklinio komanda MSTR salėje po tinkliniu tinklu'],
+    kv:['images/foto-043.jpg','Maišiagalos sportas vaikinų krepšinio komanda MSKR su treneriais']
   };
   var A={fk:[
     ['Čempionai','Vilniaus mažojo futbolo taurė, 2026 m.'],
@@ -629,9 +788,27 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   var MG=['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
   var CATS={tin:['Tinklinis','#17803e'],kre:['Krepšinis','#b3261e'],fut:['Futbolas','#2f5f8f'],bend:['Bendruomenė','#7a4fb5']};
   /* Renginiai. Pridėkite naują eilutę: data (MMMM-MM-DD), pavadinimas, kategorija (tin, kre, fut, bend), laikas, vieta, aprašymas. */
+  /* MIX lygos tvarkaraštis. Eilutė: [pradžia, pabaiga, 1 komanda, 2 komanda] */
+  window.MIXSCHED=[{d:'2026-12-05',r:1,t:1,note:"STARTAS · MONOLITO pradeda vėliau",g:[["11:00", "12:00", "ERIKA", "VIENO SETO ŽAIDĖJAI"], ["12:00", "13:00", "DREAM TEAM", "SK AVE.KO."], ["13:00", "14:00", "ERIKA", "DREAM TEAM"]]},
+    {d:'2026-12-12',r:1,t:2,note:"",g:[["11:00", "12:00", "VIENO SETO ŽAIDĖJAI", "DREAM TEAM"], ["12:00", "13:00", "ERIKA", "SK AVE.KO."], ["13:00", "14:00", "VIENO SETO ŽAIDĖJAI", "SK AVE.KO."]]},
+    {d:'2026-12-19',r:1,t:3,note:"Šventinė pertrauka: 2026 m. gruodžio 26 d. – 2027 m. sausio 9 d.",g:[["11:00", "12:00", "ERIKA", "SUDERVĖ"], ["12:00", "13:00", "VIENO SETO ŽAIDĖJAI", "SUDERVĖ"]]},
+    {d:'2027-01-09',r:1,t:4,note:"MONOLITO prisijungia",g:[["11:00", "12:00", "MONOLITO", "ERIKA"], ["12:00", "13:00", "MONOLITO", "VIENO SETO ŽAIDĖJAI"], ["13:00", "14:00", "SK AVE.KO.", "SUDERVĖ"]]},
+    {d:'2027-01-16',r:1,t:5,note:"",g:[["11:00", "12:00", "MONOLITO", "DREAM TEAM"], ["12:00", "13:00", "MONOLITO", "SK AVE.KO."], ["13:00", "14:00", "DREAM TEAM", "SUDERVĖ"], ["14:00", "15:00", "MONOLITO", "SUDERVĖ"]]},
+    {d:'2027-01-23',r:2,t:1,note:"",g:[["11:00", "12:00", "MONOLITO", "ERIKA"], ["12:00", "13:00", "VIENO SETO ŽAIDĖJAI", "DREAM TEAM"], ["13:00", "14:00", "SK AVE.KO.", "SUDERVĖ"]]},
+    {d:'2027-01-30',r:2,t:2,note:"",g:[["11:00", "12:00", "DREAM TEAM", "SK AVE.KO."], ["12:00", "13:00", "MONOLITO", "VIENO SETO ŽAIDĖJAI"], ["13:00", "14:00", "ERIKA", "SUDERVĖ"]]},
+    {d:'2027-02-06',r:2,t:3,note:"",g:[["11:00", "12:00", "MONOLITO", "SK AVE.KO."], ["12:00", "13:00", "ERIKA", "DREAM TEAM"], ["13:00", "14:00", "VIENO SETO ŽAIDĖJAI", "SUDERVĖ"]]},
+    {d:'2027-02-20',r:2,t:4,note:"",g:[["11:00", "12:00", "ERIKA", "SK AVE.KO."], ["12:00", "13:00", "MONOLITO", "DREAM TEAM"], ["13:00", "14:00", "DREAM TEAM", "SUDERVĖ"]]},
+    {d:'2027-02-27',r:2,t:5,note:"",g:[["11:00", "12:00", "VIENO SETO ŽAIDĖJAI", "SK AVE.KO."], ["12:00", "13:00", "MONOLITO", "SUDERVĖ"], ["13:00", "14:00", "ERIKA", "VIENO SETO ŽAIDĖJAI"]]},
+    {d:'2027-03-13',fin:1,note:'',g:[['11:00','12:00','Lentelės 1–4 vietų komandos',''],['12:00','13:00','Lentelės 2–3 vietų komandos',''],['13:00','14:00','Žaidimas dėl 3–4 turnyro vietos',''],['14:00','15:00','Žaidimas dėl 1–2 turnyro vietos','']]}];
   var D='Daugiau informacijos bus pateikta Facebooke.';
   var E=[
-    {date:'2026-12-05',title:'MIX tinklinio lyga III sezonas',cat:'tin',desc:'Su šventine pertrauka 2026 m. gruodžio 26 d. – 2027 m. sausio 9 d. '+D},
+    {date:'2026-11-08',title:'MSTR – VDA',cat:'tin',desc:D},
+    {date:'2026-11-12',title:'MSTR merginos – MRU',cat:'tin',desc:D},
+    {date:'2026-11-14',title:'FK BIČIULIAI-MS – FK DINAMICA',cat:'fut',desc:D},
+    {date:'2026-11-18',title:'MSTR – VK',cat:'tin',desc:D},
+    {date:'2026-11-24',title:'After9 – MSTR',cat:'tin',desc:D},
+    {date:'2026-11-30',title:'Polonia – MSTR',cat:'tin',desc:D},
+    {date:'2026-12-10',title:'Blackout – MSTR',cat:'tin',desc:D},
     {date:'2027-01-17',title:'Rogučių popietė',cat:'bend',desc:D},
     {date:'2027-02-13',title:'Tarpmiestinis Maišiagalos tinklinio turnyras – vaikinai',cat:'tin',desc:D},
     {date:'2027-03-06',title:'Tarpmiestinis Maišiagalos tinklinio turnyras – merginos',cat:'tin',desc:D},
@@ -641,6 +818,32 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     {date:'2027-07-23',end:'2027-07-25',title:'Maišiagalos žaidynės 2027',cat:'bend',desc:D},
     {date:'2027-10-02',title:'Maišiagalos 3×3 krepšinio lyga',cat:'kre',desc:D}
   ];
+  window.MIXSCHED.forEach(function(x){
+    var gs=x.g,tt=x.fin?'TINKLINIO MIX LYGOS ATKRENTAMOSIOS – FINALAS (TOP 4)':'TINKLINIO MIX LYGOS '+x.r+' RATO '+x.t+' TURAS';
+    E.push({date:x.d,title:tt,cat:'tin',time:gs[0][0]+'–'+gs[gs.length-1][1],mix:x,
+      desc:(x.note?x.note+'. ':'')+gs.map(function(m){return m[2]+(m[3]?' – '+m[3]:'')+' ('+m[0]+'–'+m[1]+')'}).join('; ')});
+  });
+  /* Futbolo 7x7 lygos E grupės tvarkaraštis (šaltinis: vilniausfutbolas.lt). Eilutė: [data, laikas, turas, namų komanda, svečių komanda] */
+  var FKURL='https://www.vilniausfutbolas.lt/komanda/FK-Biciuliai-MS/559/3/37',FKLOGO='https://www.vilniausfutbolas.lt/uploads/_sfl.lt/teams/';
+  var FT={'Bičiuliai MS':[559,'images/foto-006.webp'],'FK Skipis':[563],'FC WW':[555],'Kampinis':[556],'FC Klynas':[560],'Internacionalas':[56],'Partizanas-GV':[466],'Qarabaq':[561],'Tiki-Taka':[557],'Eksperimentas':[558],'Antracitas':[562],'Ekipažas':[564]};
+  var FM=[
+    ['2026-12-06','16:01',1,'FK Skipis','Bičiuliai MS'],['2026-12-06','16:42',1,'FC WW','Bičiuliai MS'],
+    ['2026-12-13','17:33',2,'Bičiuliai MS','Kampinis'],['2026-12-13','18:13',2,'Bičiuliai MS','FC Klynas'],
+    ['2026-12-20','15:33',3,'Bičiuliai MS','Internacionalas'],['2026-12-20','16:13',3,'Bičiuliai MS','Partizanas-GV'],
+    ['2027-01-03','14:31',4,'Qarabaq','Bičiuliai MS'],['2027-01-03','15:11',4,'Tiki-Taka','Bičiuliai MS'],
+    ['2027-01-10','17:34',5,'Bičiuliai MS','Eksperimentas'],['2027-01-10','18:13',5,'Antracitas','Bičiuliai MS'],
+    ['2027-01-17','14:03',6,'Bičiuliai MS','Ekipažas'],['2027-01-17','14:44',6,'Bičiuliai MS','FK Skipis'],
+    ['2027-01-24','17:34',7,'Bičiuliai MS','FC WW'],['2027-01-24','18:13',7,'Kampinis','Bičiuliai MS'],
+    ['2027-01-31','14:31',8,'FC Klynas','Bičiuliai MS'],['2027-01-31','15:11',8,'Internacionalas','Bičiuliai MS'],
+    ['2027-02-07','19:01',9,'Partizanas-GV','Bičiuliai MS'],['2027-02-07','19:42',9,'Bičiuliai MS','Qarabaq'],
+    ['2027-02-14','14:04',10,'Bičiuliai MS','Tiki-Taka'],['2027-02-14','14:43',10,'Eksperimentas','Bičiuliai MS'],
+    ['2027-02-21','16:03',11,'Bičiuliai MS','Antracitas'],['2027-02-21','16:43',11,'Ekipažas','Bičiuliai MS']
+  ];
+  var FD={};FM.forEach(function(m){(FD[m[0]]=FD[m[0]]||{d:m[0],t:m[2],g:[]}).g.push([m[1],m[3],m[4]])});
+  Object.keys(FD).sort().forEach(function(k){var x=FD[k];
+    E.push({date:x.d,title:'FK BIČIULIAI-MS · 7x7 LYGOS '+x.t+' TURAS',cat:'fut',time:x.g.map(function(m){return m[0]}).join(', '),fut:x,
+      desc:'7x7 Lyga, E grupė, '+x.t+' turas. '+x.g.map(function(m){return m[1]+' – '+m[2]+' ('+m[0]+')'}).join('; ')});
+  });
   var byDate={};E.forEach(function(e,i){e.i=i;var a=e.date.split('-'),n=0,k=e.date;do{(byDate[k]=byDate[k]||[]).push(e);n++;k=iso(new Date(+a[0],+a[1]-1,+a[2]+n))}while(e.end&&k<=e.end)});
   function p2(n){return n<10?'0'+n:''+n}
   function iso(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
@@ -649,6 +852,22 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   function el(t,c,x){var n=document.createElement(t);if(c){n.className=c}if(x!=null){n.textContent=x}return n}
   var now=new Date(),todayKey=iso(now),view={y:now.getFullYear(),m:now.getMonth()},sel=null;
   var grid=$('cal-grid'),title=$('cal-title'),found=$('cal-found'),list=$('cal-list'),dateIn=$('cal-date'),dlg=$('ev-dialog'),body=$('ev-body');
+  function flogo(n){
+    var w=el('span','tlogo'),t=FT[n],ini=n.replace(/[^A-Za-zĄČĘĖĮŠŲŪŽąčęėįšųūž ]/g,'').split(' ').filter(Boolean).slice(0,2).map(function(a){return a.charAt(0).toUpperCase()}).join('');
+    w.setAttribute('aria-hidden','true');
+    function fb(){w.textContent='';var f=el('span','tl-ini',ini);w.appendChild(f)}
+    if(t){var i=el('img');i.alt='';i.loading='lazy';i.referrerPolicy='no-referrer';i.addEventListener('error',function(){if(t[1]&&i.getAttribute('src')!==t[1]){i.src=t[1]}else{fb()}});i.src=t[1]||FKLOGO+t[0]+'_s.png';w.appendChild(i)}else{fb()}
+    return w;
+  }
+  function futDay(x){
+    var box=el('div','mxd');box.appendChild(el('p','mx-note','7x7 Lyga · E grupė · '+x.t+' turas'));
+    x.g.forEach(function(m){
+      var r=el('div','mx-g'),mm=el('div','mx-m');
+      [m[1],m[2]].forEach(function(n,k){if(k){mm.appendChild(el('span','vs','–'))}var w=el('span','mx-t');w.appendChild(flogo(n));w.appendChild(el('span',null,n));mm.appendChild(w)});
+      r.appendChild(el('time',null,m[0]));r.appendChild(mm);box.appendChild(r);
+    });
+    return box;
+  }
   function show(evs){
     body.textContent='';
     evs.forEach(function(ev,i){
@@ -656,8 +875,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
       a.style.setProperty('--ev',c[1]);if(i){a.classList.add('sep')}
       a.appendChild(el('span','evtag',c[0]));a.appendChild(el('h3','evt',ev.title));
       [['Data',rng(ev)],['Laikas',ev.time],['Vieta',ev.place]].forEach(function(r){if(r[1]){dl.appendChild(el('dt',null,r[0]));dl.appendChild(el('dd',null,r[1]))}});
-      a.appendChild(dl);a.appendChild(el('p',null,ev.desc));
-      var bt=el('div','evbtn'),f=el('a','btn sm','Facebook grupė');f.href='https://www.facebook.com/groups/1352681309700929/';f.target='_blank';f.rel='noopener noreferrer';bt.appendChild(f);var l=el('a','btn sm','Susisiekti dėl dalyvavimo');l.href='#kontaktai';l.addEventListener('click',function(){dlg.close()});bt.appendChild(l);a.appendChild(bt);
+      a.appendChild(dl);if(ev.fut){a.appendChild(futDay(ev.fut))}else if(ev.mix&&window.MIXDAY){a.appendChild(window.MIXDAY(ev.mix))}else{a.appendChild(el('p',null,ev.desc))}
+      var bt=el('div','evbtn');var f=el('a','btn sm','Facebook grupė');f.href='https://www.facebook.com/groups/1352681309700929/';f.target='_blank';f.rel='noopener noreferrer';bt.appendChild(f);if(ev.fut){var mi=el('a','btn sm','Daugiau informacijos');mi.href=FKURL;mi.target='_blank';mi.rel='noopener noreferrer';bt.appendChild(mi);var fl=el('a','btn sm','Susisiekti dėl dalyvavimo');fl.href='#kontaktai';fl.addEventListener('click',function(){dlg.close()});bt.appendChild(fl);a.appendChild(bt);body.appendChild(a);return}if(ev.mix){var sb=el('button','btn sm','Visas tvarkaraštis');sb.type='button';sb.addEventListener('click',function(){dlg.close();if(window.MIXSC){window.MIXSC()}});bt.appendChild(sb)}var l=el('a','btn sm','Susisiekti dėl dalyvavimo');l.href='#kontaktai';l.addEventListener('click',function(){dlg.close()});bt.appendChild(l);a.appendChild(bt);
       body.appendChild(a);
     });
     if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}
@@ -723,18 +942,18 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   var MG=['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
   /* Katalogas. Pridėkite renginį: {title:'Pavadinimas',date:'MMMM-MM-DD' (nebūtina),photos:['data:image/webp;base64,...']}. Pirma nuotrauka rodoma kaip peržiūra. */
   var G=[
-    {title:"Stalo teniso turnyras 2025",photos:['images/foto-05.webp','images/foto-06.webp','images/foto-07.webp','images/foto-08.webp','images/foto-09.webp','images/foto-10.webp','images/foto-11.webp','images/foto-12.webp','images/foto-13.webp']},
-    {title:"Maišiagalos kalėdų šventė 2025",photos:['images/foto-14.webp','images/foto-15.webp','images/foto-16.webp','images/foto-17.webp','images/foto-18.webp','images/foto-19.webp','images/foto-20.webp','images/foto-21.webp','images/foto-22.webp']},
-    {title:"Kalėdinis Futsal ir krepšinio turnyras 2025",photos:['images/foto-23.webp','images/foto-24.webp','images/foto-25.webp','images/foto-26.webp','images/foto-27.webp','images/foto-28.webp','images/foto-29.webp','images/foto-30.webp','images/foto-31.webp','images/foto-32.webp']},
-    {title:"MIX tinklinio lyga 2026",photos:['images/foto-33.webp','images/foto-34.webp','images/foto-35.webp','images/foto-36.webp','images/foto-37.webp','images/foto-38.webp','images/foto-39.webp','images/foto-40.webp','images/foto-41.webp','images/foto-42.webp']},
-    {title:"Sausio 13-tosios Laisvės žygis 2026",photos:['images/foto-43.webp','images/foto-44.webp','images/foto-45.webp','images/foto-46.webp','images/foto-47.webp','images/foto-48.webp','images/foto-49.webp','images/foto-50.webp','images/foto-51.webp','images/foto-52.webp','images/foto-53.webp']},
-    {title:"Rogučių popietė 2026",photos:['images/foto-54.webp','images/foto-55.webp','images/foto-56.webp','images/foto-57.webp','images/foto-58.webp','images/foto-59.webp','images/foto-60.webp','images/foto-61.webp','images/foto-62.webp','images/foto-63.webp','images/foto-64.webp','images/foto-65.webp']}
+    {title:"MIX Tinklinio lygos 3-asis sezonas",pin:true,league:true,photos:['images/foto-044.webp']},
+    {title:"Maišiagalos kalėdų šventė 2025",photos:['images/foto-045.webp','images/foto-046.webp','images/foto-047.webp','images/foto-048.webp','images/foto-049.webp','images/foto-050.webp','images/foto-051.webp','images/foto-052.webp','images/foto-053.webp']},
+    {title:"Kalėdinis Futsal ir krepšinio turnyras 2025",photos:['images/foto-054.webp','images/foto-055.webp','images/foto-056.webp','images/foto-057.webp','images/foto-058.webp','images/foto-059.webp','images/foto-060.webp','images/foto-061.webp','images/foto-062.webp','images/foto-063.webp']},
+    {title:"MIX tinklinio lyga 2026",photos:['images/foto-064.webp','images/foto-065.webp','images/foto-066.webp','images/foto-067.webp','images/foto-068.webp','images/foto-069.webp','images/foto-070.webp','images/foto-071.webp','images/foto-072.webp','images/foto-073.webp']},
+    {title:"Sausio 13-tosios Laisvės žygis 2026",photos:['images/foto-074.webp','images/foto-075.webp','images/foto-076.webp','images/foto-077.webp','images/foto-078.webp','images/foto-079.webp','images/foto-080.webp','images/foto-081.webp','images/foto-082.webp','images/foto-083.webp','images/foto-084.webp']},
+    {title:"Rogučių popietė 2026",photos:['images/foto-085.webp','images/foto-086.webp','images/foto-087.webp','images/foto-088.webp','images/foto-089.webp','images/foto-090.webp','images/foto-091.webp','images/foto-092.webp','images/foto-093.webp','images/foto-094.webp','images/foto-095.webp','images/foto-096.webp']}
   ];
-  var items=G.slice().sort(function(a,b){return a.title.localeCompare(b.title,'lt')});
+  var items=G.slice().sort(function(a,b){return (b.pin?1:0)-(a.pin?1:0)||a.title.localeCompare(b.title,'lt')});
   function norm(s){var o='';for(var i=0;i<s.length;i++){o+=s.charAt(i).normalize('NFD').charAt(0).toLowerCase().charAt(0)}return o}
   function el(t,c,x){var n=document.createElement(t);if(c){n.className=c}if(x!=null){n.textContent=x}return n}
   function first(t){var c=t.trim().charAt(0).toLocaleUpperCase('lt');return AB.indexOf(c)>-1?c:'#'}
-  function meta(g){var d=g.date?g.date.split('-'):null;return (d?d[0]+' m. '+MG[d[1]-1]+' '+(+d[2])+' d. · ':'')+'Nuotraukų: '+g.photos.length}
+  function meta(g){if(g.league){return 'Pradžia: 2026 m. gruodžio 5 d.'}var d=g.date?g.date.split('-'):null;return (d?d[0]+' m. '+MG[d[1]-1]+' '+(+d[2])+' d. · ':'')+'Nuotraukų: '+g.photos.length}
   var letter=null,q='',abc=$('abc'),grid=$('gal-grid'),qi=$('cat-q'),dlg=$('gal-dialog'),thumbs=$('gal-thumbs'),gb=$('gal-body'),vw=$('gal-view'),img=$('gal-img'),cur=null,pos=0,present={};
   items.forEach(function(g){present[first(g.title)]=1});
   function drawAbc(){
@@ -749,6 +968,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
       abc.appendChild(b);
     });
   }
+  function watchBtn(){var b=el('button','btn sm watch');b.appendChild(el('span','wt','Stebėti renginį'));b.appendChild(el('span','vb','🏐'));return b}
   function render(){
     grid.textContent='';
     if(!items.length&&letter===null&&!q.trim()){grid.appendChild(el('p','cal-empty','Renginių akimirkos netrukus bus pridėtos.'));return}
@@ -756,7 +976,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     var r=items.filter(function(g){var n=norm(g.title);return (letter===null||first(g.title)===letter)&&w.every(function(x){return n.indexOf(x)>-1})});
     if(!r.length){grid.appendChild(el('p','cal-empty','Nieko nerasta. Pabandykite kitą raidę ar žodį.'));return}
     r.forEach(function(g){
-      var c=el('article','card gcard'),im=el('img'),b=el('div'),btn=el('button','btn sm','Peržiūrėti');
+      var c=el('article','card gcard'),im=el('img'),b=el('div'),btn=g.league?watchBtn():el('button','btn sm','Peržiūrėti');
       im.src=g.photos[0];im.alt='Renginio „'+g.title+'“ nuotrauka';im.loading='lazy';
       im.addEventListener('click',function(){open(g)});
       btn.type='button';btn.addEventListener('click',function(){open(g)});
@@ -772,6 +992,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   }
   function back(){vw.hidden=true;gb.hidden=false}
   function open(g){
+    if(g.league){window.LEAGUE.open();return}
     cur=g;$('gal-title').textContent=g.title;$('gal-meta').textContent=meta(g);
     thumbs.textContent='';
     g.photos.forEach(function(s,i){
@@ -804,7 +1025,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   d.addEventListener('click',function(e){if(e.target===d){d.close()}});
 })();
 (function(){
-  var C={"prz": {"n": "Šokių kolektyvas „Przyjaźń“", "k": "Šokių kolektyvas · Folk Dance", "d": "Šokių kolektyvas „Przyjaźń“ (lenk. „Draugystė“) vienija šokėjus, kuriems svarbios šokio tradicijos, bendravimas ir scenos džiaugsmas. Kolektyvas koncertuoja įvairiuose renginiuose ir festivaliuose. Norintys sužinoti daugiau ar prisijungti gali skambinti nurodytu numeriu.", "t": "+370 609 94660", "w": null, "p": "images/foto-66.webp"}, "bal": {"n": "Baleto studija „Baletas JUMS“", "k": "Baleto studija", "d": "Baleto studija „Baletas JUMS“ veikia nuo 2014 metų. Čia mažieji ir vyresni šokėjai mokosi baleto pagrindų, lavina plastiką, koordinaciją ir ugdo meilę šokiui.", "t": "+370 648 72098", "w": null, "p": "images/foto-67.webp"}, "sen": {"n": "Karatė mokykla „Senshi“", "k": "Karatė · kovos menai", "d": "Karatė mokykla „Senshi“ moko karatė technikos, ugdo discipliną, pagarbą ir pasitikėjimą savimi. Treniruotėse sportuoja įvairaus amžiaus ir pasirengimo žmonės.", "t": "+370 648 04 286", "w": null, "p": "images/foto-68.webp"}, "vsc": {"n": "Vilnius Social Club", "k": "Bendruomeninis klubas", "d": "Vilnius Social Club – klubas, kviečiantis susipažinti, bendrauti ir aktyviai leisti laiką kartu. Apie klubo veiklas ir artimiausius renginius galima sužinoti paskambinus nurodytu numeriu.", "t": "+370 647 06985", "w": null, "p": "images/foto-69.webp"}, "box": {"n": "Bokso klubas „Olimpinis ringas“", "k": "Boksas", "d": "Bokso klubas „Olimpinis ringas“ kviečia mokytis bokso pagrindų, stiprinti fizinį pasirengimą ir ugdyti valią bei discipliną. Treniruotės tinka tiek pradedantiesiems, tiek jau sportuojantiems.", "t": "+370 677 67580", "w": null, "p": "images/foto-70.webp"}, "fa": {"n": "FA „TransINVEST“", "k": "Futbolo klubas · Vilnius", "d": "Vilniaus futbolo klubas „TransINVEST“ ugdo jaunuosius futbolininkus: moko žaidimo technikos, komandinio žaidimo ir džiaugtis sportu kartu. Dėl registracijos ir treniruočių laiko skambinkite nurodytu numeriu.", "t": "+370 686 64692", "w": null, "p": "images/foto-71.webp"}};
+  var C={"prz": {"n": "Šokių kolektyvas „Przyjaźń“", "k": "Šokių kolektyvas · Folk Dance", "d": "Šokių kolektyvas „Przyjaźń“ (lenk. „Draugystė“) vienija šokėjus, kuriems svarbios šokio tradicijos, bendravimas ir scenos džiaugsmas. Kolektyvas koncertuoja įvairiuose renginiuose ir festivaliuose. Norintys sužinoti daugiau ar prisijungti gali skambinti nurodytu numeriu.", "t": "+370 609 94660", "w": null, "p": "images/foto-097.webp"}, "bal": {"n": "Baleto studija „Baletas JUMS“", "k": "Baleto studija", "d": "Baleto studija „Baletas JUMS“ veikia nuo 2014 metų. Čia mažieji ir vyresni šokėjai mokosi baleto pagrindų, lavina plastiką, koordinaciją ir ugdo meilę šokiui.", "t": "+370 648 72098", "w": null, "p": "images/foto-098.webp"}, "sen": {"n": "Karatė mokykla „Senshi“", "k": "Karatė · kovos menai", "d": "Karatė mokykla „Senshi“ moko karatė technikos, ugdo discipliną, pagarbą ir pasitikėjimą savimi. Treniruotėse sportuoja įvairaus amžiaus ir pasirengimo žmonės.", "t": "+370 648 04 286", "w": null, "p": "images/foto-099.webp"}, "vsc": {"n": "Vilnius Social Club", "k": "Bendruomeninis klubas", "d": "Vilnius Social Club – klubas, kviečiantis susipažinti, bendrauti ir aktyviai leisti laiką kartu. Apie klubo veiklas ir artimiausius renginius galima sužinoti paskambinus nurodytu numeriu.", "t": "+370 647 06985", "w": null, "p": "images/foto-100.webp"}, "box": {"n": "Bokso klubas „Olimpinis ringas“", "k": "Boksas", "d": "Bokso klubas „Olimpinis ringas“ kviečia mokytis bokso pagrindų, stiprinti fizinį pasirengimą ir ugdyti valią bei discipliną. Treniruotės tinka tiek pradedantiesiems, tiek jau sportuojantiems.", "t": "+370 677 67580", "w": null, "p": "images/foto-101.webp"}, "fa": {"n": "FA „TransINVEST“", "k": "Futbolo klubas · Vilnius", "d": "Vilniaus futbolo klubas „TransINVEST“ ugdo jaunuosius futbolininkus: moko žaidimo technikos, komandinio žaidimo ir džiaugtis sportu kartu. Dėl registracijos ir treniruočių laiko skambinkite nurodytu numeriu.", "t": "+370 686 64692", "w": null, "p": "images/foto-102.webp"}};
   var $=function(i){return document.getElementById(i)},d=$('club-dialog');
   document.querySelectorAll('[data-club]').forEach(function(b){
     b.addEventListener('click',function(){
@@ -821,6 +1042,230 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   $('club-close').addEventListener('click',function(){d.close()});
   d.addEventListener('click',function(e){if(e.target===d){d.close()}});
 })();
+(function(){
+  var nav=document.querySelector('nav'),header=document.querySelector('header');
+  var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  var cur=null,lock=false,lt;
+
+  function set(id){
+    if(id===cur){return}
+    cur=id;
+    links.forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('active',on);
+      if(on){a.setAttribute('aria-current','true')}else{a.removeAttribute('aria-current')}
+      if(on&&nav.scrollWidth>nav.clientWidth){
+        var r=a.getBoundingClientRect(),n=nav.getBoundingClientRect();
+        nav.scrollTo({left:nav.scrollLeft+r.left-n.left-(n.width-r.width)/2,behavior:'smooth'});
+      }
+    });
+  }
+
+  function spy(){
+    var line=header.offsetHeight+24,id=links[0].getAttribute('href').slice(1);
+    secs.forEach(function(s){if(s&&s.getBoundingClientRect().top<=line){id=s.id}});
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2){id=secs[secs.length-1].id}
+    set(id);
+  }
+
+  function onScroll(){
+    if(lock){clearTimeout(lt);lt=setTimeout(function(){lock=false;spy()},150);return}
+    spy();
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click',function(){
+      set(a.getAttribute('href').slice(1));
+      lock=true;clearTimeout(lt);
+      lt=setTimeout(function(){lock=false;spy()},1200);
+    });
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick){return}tick=true;
+    requestAnimationFrame(function(){tick=false;onScroll()});
+  },{passive:true});
+  window.addEventListener('resize',spy);
+  spy();
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function el(t,c,x){var n=document.createElement(t);if(c){n.className=c}if(x!=null){n.textContent=x}return n}
+  /* Komandos. Logotipui pridėkite: logo:'data:image/webp;base64,...' */
+  var TEAMS=[{n:'MONOLITO',logo:'images/foto-103.webp'},{n:'ERIKA',logo:'images/foto-104.webp'},{n:'VIENO SETO ŽAIDĖJAI',logo:'images/foto-105.webp'},{n:'DREAM TEAM',logo:'images/foto-106.webp'},{n:'SK AVE.KO.',logo:'images/foto-107.webp'},{n:'SUDERVĖ',logo:'images/foto-108.webp'}];
+  /* Rezultatai: {a:'MONOLITO',b:'ERIKA',score:'2:0',pa:3,pb:0,wa:50,wb:38} (pa, pb – taškai; wa, wb – laimėti padavimai) */
+  var MATCHES=[];
+  var d=$('lg-dialog'),po=$('popout');
+  function slot(t){var s=el('span','tlogo');s.setAttribute('aria-hidden','true');if(t.logo){var i=el('img');i.src=t.logo;i.alt='';s.appendChild(i)}return s}
+  function named(){return TEAMS.map(function(t,i){return {t:t,i:i}}).filter(function(x){return x.t.n})}
+  function teams(){
+    var ol=$('lg-teams');ol.textContent='';
+    TEAMS.forEach(function(t,i){var li=el('li');li.appendChild(el('span','num',(i+1)+'.'));li.appendChild(slot(t));li.appendChild(el('span',null,t.n||'–'));ol.appendChild(li)});
+  }
+  function cross(){
+    var N=named(),t=el('table','lg-t'),th=el('thead'),h=el('tr'),tb=el('tbody');
+    h.appendChild(el('th',null,'Komanda'));N.forEach(function(x){h.appendChild(el('th',null,String(x.i+1)))});
+    th.appendChild(h);t.appendChild(th);
+    N.forEach(function(r){
+      var tr=el('tr');var rh=el('th','rowh');rh.appendChild(slot(r.t));rh.appendChild(document.createTextNode((r.i+1)+'. '+r.t.n));tr.appendChild(rh);
+      N.forEach(function(c){
+        var td=el('td');
+        if(r.i===c.i){td.className='diag';td.textContent='–'}
+        else{MATCHES.forEach(function(m){if(m.a===r.t.n&&m.b===c.t.n){td.textContent=m.score}else if(m.a===c.t.n&&m.b===r.t.n){td.textContent=m.score.split(':').reverse().join(':')}})}
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb);var w=$('lg-cross');w.textContent='';w.appendChild(t);
+  }
+  function stand(){
+    var S=named().map(function(x){return {t:x.t,i:x.i,p:0,w:0}});
+    MATCHES.forEach(function(m){S.forEach(function(s){
+      if(s.t.n===m.a){s.p+=m.pa||0;s.w+=m.wa||0}
+      if(s.t.n===m.b){s.p+=m.pb||0;s.w+=m.wb||0}
+    })});
+    S.sort(function(a,b){return b.p-a.p||b.w-a.w||a.i-b.i});
+    var t=el('table','lg-t'),th=el('thead'),h=el('tr'),tb=el('tbody');
+    ['Vieta','Komanda','Taškai','Laimėti padavimai'].forEach(function(x){h.appendChild(el('th',null,x))});
+    th.appendChild(h);t.appendChild(th);
+    S.forEach(function(s,k){
+      var tr=el('tr'),nm=el('td','nm');
+      tr.appendChild(el('td',null,String(k+1)));nm.appendChild(slot(s.t));nm.appendChild(el('span',null,s.t.n));tr.appendChild(nm);
+      tr.appendChild(el('td',null,String(s.p)));tr.appendChild(el('td',null,String(s.w)));tb.appendChild(tr);
+    });
+    t.appendChild(tb);var w=$('lg-stand');w.textContent='';w.appendChild(t);
+  }
+  var RATAI=['Pirmas ratas','Antras ratas'],prR=0,prI=0;
+  function scr(m){return m.score.split(':').map(Number)}
+  function pairs(){var N=named(),P=[];for(var i=0;i<N.length;i++){for(var j=i+1;j<N.length;j++){P.push(prR%2?[N[j].t,N[i].t]:[N[i].t,N[j].t])}}return P}
+  function stats(){
+    var S={};named().forEach(function(x){S[x.t.n]={pl:0,w:0,sf:0,sa:0}});
+    MATCHES.forEach(function(m){var a=S[m.a],b=S[m.b];if(!a||!b){return}var s=scr(m);a.pl++;b.pl++;if(s[0]>s[1]){a.w++}else if(s[1]>s[0]){b.w++}a.sf+=m.wa||0;a.sa+=m.wb||0;b.sf+=m.wb||0;b.sa+=m.wa||0});
+    return S;
+  }
+  function str(s){return 0.55*(s.w+1)/(s.pl+2)+0.45*(s.sf+10)/(s.sf+s.sa+20)}
+  function played(a,b){var f=null;MATCHES.forEach(function(m){if(((m.a===a.n&&m.b===b.n)||(m.a===b.n&&m.b===a.n))&&(m.r||1)===prR+1){f=m}});return f}
+  function predict(a,b){
+    var S=stats(),A=S[a.n],B=S[b.n],sa=str(A),sb=str(B),p=sa*sa/(sa*sa+sb*sb),hp=0,hw=0,W=2;
+    MATCHES.forEach(function(m){
+      var s=scr(m),v=Math.max(s[0],s[1]);if(v<=5){W=Math.max(W,v)}
+      if((m.a===a.n&&m.b===b.n)||(m.a===b.n&&m.b===a.n)){var d=m.a===a.n?s[0]-s[1]:s[1]-s[0];hp++;if(d>0){hw++}}
+    });
+    if(hp){p=0.7*p+0.3*(hw+1)/(hp+2)}
+    var pw=Math.max(p,1-p),n=Math.min(A.pl,B.pl);
+    return {p:p,A:A,B:B,hp:hp,hw:hw,W:W,lost:Math.min(W-1,Math.round((1-pw)*2*(W-1))),win:Math.abs(p-0.5)<0.03?null:(p>0.5?a:b),conf:n<2?'Maža':(n<5?'Vidutinė':'Didesnė')};
+  }
+  function card(a,b){
+    var box=$('pr-card'),pl=played(a,b);box.textContent='';
+    function side(t,pc){var d=el('div','pr-side');d.appendChild(slot(t));d.appendChild(el('b',null,t.n));if(pc!=null){d.appendChild(el('span','pr-pc',pc+'%'))}return d}
+    var top=el('div','pr-top'),mid=el('div','pr-mid');
+    if(pl){
+      var s=pl.a===a.n?pl.score:pl.score.split(':').reverse().join(':');
+      mid.appendChild(el('small',null,'Rungtynės sužaistos'));mid.appendChild(el('b',null,s.replace(':',' : ')));
+      top.appendChild(side(a));top.appendChild(mid);top.appendChild(side(b));box.appendChild(top);
+      box.appendChild(el('p','pr-note','Šios rungtynės jau įvyko, todėl rodomas tikrasis rezultatas.'));return;
+    }
+    var r=predict(a,b),pa=Math.round(r.p*100),sc='? : ?';
+    if(r.win){sc=(r.win===a?r.W+' : '+r.lost:r.lost+' : '+r.W)}
+    mid.appendChild(el('small',null,'Prognozuojamas rezultatas'));mid.appendChild(el('b',null,sc));
+    top.appendChild(side(a,pa));top.appendChild(mid);top.appendChild(side(b,100-pa));box.appendChild(top);
+    var bar=el('div','pr-bar'),x=el('span'),y=el('span');x.style.width=pa+'%';y.style.width=(100-pa)+'%';bar.appendChild(x);bar.appendChild(y);box.appendChild(bar);
+    box.appendChild(el('p','pr-win',r.win?'Prognozuojama nugalėtoja: '+r.win.n:'Jėgos lygios – per mažai duomenų aiškiai prognozei'));
+    var ul=el('ul','pr-facts');
+    if(r.A.pl+r.B.pl===0){ul.appendChild(el('li',null,'Dar nėra sužaistų rungtynių, todėl prognozė 50 / 50. Po pirmųjų rezultatų ji pradės keistis.'))}
+    else{
+      [[a,r.A],[b,r.B]].forEach(function(z){ul.appendChild(el('li',null,z[0].n+': pergalių '+z[1].w+' iš '+z[1].pl+(z[1].sf+z[1].sa?', laimėtų padavimų '+z[1].sf+' prieš '+z[1].sa:'')))});
+      if(r.hp){ul.appendChild(el('li',null,'Tarpusavio rungtynės: '+a.n+' laimėjo '+r.hw+' iš '+r.hp))}
+    }
+    box.appendChild(ul);
+    var c=el('span','pr-chip','Prognozės patikimumas: '+r.conf);box.appendChild(c);
+    box.appendChild(el('p','pr-note','Pramoginė prognozė, skaičiuojama pagal jau sužaistų rungtynių rezultatus.'));
+  }
+  function mkdd(id,ph,fn){
+    var root=$(id),btn=root.querySelector('.dd-btn'),val=root.querySelector('.dd-val'),ul=root.querySelector('.dd-list'),S={v:'',items:[],r:null};
+    function close(){ul.hidden=true;btn.setAttribute('aria-expanded','false')}
+    function draw(){
+      ul.textContent='';
+      S.items.forEach(function(it){
+        var li=el('li',it.v===S.v?'sel':null);li.setAttribute('role','option');li.tabIndex=0;
+        if(it.l){li.appendChild(slot(it.l[0]));li.appendChild(el('span',null,it.t));li.appendChild(slot(it.l[1]))}else{li.appendChild(el('span',null,it.t))}
+        function pick(){S.v=it.v;val.textContent=it.t;close();draw();fn()}
+        li.addEventListener('click',pick);
+        li.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}});
+        ul.appendChild(li);
+      });
+    }
+    btn.addEventListener('click',function(e){e.stopPropagation();if(btn.disabled){return}var o=ul.hidden;document.dispatchEvent(new Event('ddclose'));ul.hidden=!o;btn.setAttribute('aria-expanded',String(o))});
+    document.addEventListener('ddclose',close);
+    S.set=function(items,p){S.items=items;S.v='';val.textContent=p||ph;draw();close()};
+    S.dis=function(b){btn.disabled=b};
+    return S;
+  }
+  var RATOPT=[{v:'0',t:'Pirmas ratas'},{v:'1',t:'Antras ratas'}];
+  var ddR=mkdd('dd-round','Pasirinkite ratą',function(){pred()}),ddM=mkdd('dd-match','Pasirinkite varžybas',function(){pred()});
+  function pred(){
+    var box=$('pr-card'),hint=$('pr-hint'),r=ddR.v;
+    box.textContent='';
+    if(r===''){ddM.set([],'Pirmiausia pasirinkite ratą');ddM.dis(true);ddM.r=null;hint.hidden=false;return}
+    prR=+r;var P=pairs();
+    if(ddM.r!==r){ddM.set(P.map(function(pr,i){return {v:String(i),t:pr[0].n+' – '+pr[1].n,l:pr}}),'Pasirinkite varžybas');ddM.r=r;ddM.dis(!P.length)}
+    if(ddM.v===''){hint.hidden=false;return}
+    hint.hidden=true;card(P[+ddM.v][0],P[+ddM.v][1]);
+  }
+  function hidePo(){po.classList.remove('show')}
+  function open(){
+    var g=window.CAT&&window.CAT.items.filter(function(x){return x.league})[0];
+    if(g){$('lg-poster').src=g.photos[0]}
+    teams();cross();stand();ddR.set(RATOPT,'Pasirinkite ratą');ddM.r=null;pred();hidePo();
+    if(d.showModal){d.showModal()}else{d.setAttribute('open','')}
+  }
+  var sc=$('lg-sched'),sd=$('sc-dialog');
+  function tm(n){
+    var w=el('span','mx-t'),t=null;TEAMS.forEach(function(x){if(x.n===n){t=x}});
+    w.appendChild(slot(t||{}));w.appendChild(el('span',null,n&&n!=='-'?n:'„–“'));return w;
+  }
+  var MXN=['gruodžio','sausio','vasario','kovo'];
+  function dayNode(x){
+    var box=el('div','mxd');
+    if(x.note){box.appendChild(el('p','mx-note',x.note))}
+    x.g.forEach(function(m){
+      var r=el('div','mx-g'),tt=el('time',null,m[0]+'–'+m[1]),mm=el('div','mx-m');
+      if(m[3]){mm.appendChild(tm(m[2]));mm.appendChild(el('span','vs','–'));mm.appendChild(tm(m[3]))}
+      else{mm.appendChild(el('span','mx-txt',m[2]))}
+      r.appendChild(tt);r.appendChild(mm);box.appendChild(r);
+    });
+    return box;
+  }
+  window.MIXDAY=dayNode;
+  function fmtD(k){var a=k.split('-');return a[0]+' m. '+['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'][+a[1]-1]+' '+(+a[2])+' d.'}
+  function schedOpen(){
+    var b=$('sc-body');b.textContent='';var last=0;
+    window.MIXSCHED.forEach(function(x){
+      var rr=x.fin?3:x.r;
+      if(rr!==last){last=rr;b.appendChild(el('h3','sc-rt',rr===1?'1 ratas':rr===2?'2 ratas':'Atkrentamosios – finalas (TOP 4)'))}
+      var day=el('div','sc-day');
+      day.appendChild(el('h4',null,fmtD(x.d)));
+      day.appendChild(el('p','sc-sub',x.fin?'Atkrentamosios – finalas (TOP 4)':x.r+' ratas · '+x.t+' turas'));
+      day.appendChild(dayNode(x));b.appendChild(day);
+    });
+    if(sd.showModal){sd.showModal()}else{sd.setAttribute('open','')}
+    sd.scrollTop=0;b.scrollTop=0;
+  }
+  window.MIXSC=schedOpen;
+  sc.addEventListener('click',function(e){e.preventDefault();schedOpen()});
+  $('sc-close').addEventListener('click',function(){sd.close()});
+  sd.addEventListener('click',function(e){if(e.target===sd){sd.close()}});
+  $('lg-close').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d){d.close()}});
+  $('po-go').addEventListener('click',open);
+  $('po-x').addEventListener('click',hidePo);
+  d.addEventListener('click',function(){document.dispatchEvent(new Event('ddclose'))});
+  setTimeout(function(){po.classList.add('show')},1500);
+  window.LEAGUE={open:open};
+})();
 </script>
 </body>
 </html>
+</body></html>
