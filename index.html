@@ -552,6 +552,7 @@ dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
         <a class="pt-card" href="https://www.vrsa.lt" target="_blank" rel="noopener noreferrer" aria-label="Vilniaus rajono savivaldybė – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-036.webp" alt="Vilniaus rajono savivaldybė" loading="lazy"></div><span>Vilniaus rajono savivaldybė</span></a>
         <a class="pt-card" href="https://vrsc.lt/" target="_blank" rel="noopener noreferrer" aria-label="Vilniaus rajono sporto centras – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-037.webp" alt="Vilniaus rajono sporto centras" loading="lazy"></div><span>Vilniaus rajono sporto centras</span></a>
         <a class="pt-card" href="https://vilniussocialclub.lt/" target="_blank" rel="noopener noreferrer" aria-label="Vilnius Social Club – atidaryti svetainę"><div class="pt-logo"><img src="images/foto-038.webp" alt="Vilnius Social Club" loading="lazy"></div><span>Vilnius Social Club</span></a>
+        <a class="pt-card" href="https://skardossprendimai.lt/" target="_blank" rel="noopener noreferrer" aria-label="Skardos sprendimai – atidaryti svetainę"><div class="pt-logo"><img src="images/skardos_sprendiniai.png" alt="Skardos sprendimai" loading="lazy"></div><span>Skardos sprendimai</span></a>
       </div>
     </div>
   </div>
@@ -808,6 +809,7 @@ dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
     {date:'2026-11-18',title:'MSTR – VK',cat:'tin',desc:D},
     {date:'2026-11-24',title:'After9 – MSTR',cat:'tin',desc:D},
     {date:'2026-11-30',title:'Polonia – MSTR',cat:'tin',desc:D},
+    {date:'2026-12-05',title:'MSKR – Airball agency',cat:'kre',time:'18:00–20:00',fr:{label:'Draugiškos krepšinio varžybos',t:'18:00–20:00',a:'MSKR',b:'Airball agency'},desc:'Draugiškos krepšinio varžybos: MSKR – Airball agency (18:00–20:00). '+D},
     {date:'2026-12-10',title:'Blackout – MSTR',cat:'tin',desc:D},
     {date:'2027-01-17',title:'Rogučių popietė',cat:'bend',desc:D},
     {date:'2027-02-13',title:'Tarpmiestinis Maišiagalos tinklinio turnyras – vaikinai',cat:'tin',desc:D},
@@ -825,7 +827,7 @@ dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
   });
   /* Futbolo 7x7 lygos E grupės tvarkaraštis (šaltinis: vilniausfutbolas.lt). Eilutė: [data, laikas, turas, namų komanda, svečių komanda] */
   var FKURL='https://www.vilniausfutbolas.lt/komanda/FK-Biciuliai-MS/559/3/37',FKLOGO='https://www.vilniausfutbolas.lt/uploads/_sfl.lt/teams/';
-  var FT={'Bičiuliai MS':[559,'images/foto-006.webp'],'FK Skipis':[563],'FC WW':[555],'Kampinis':[556],'FC Klynas':[560],'Internacionalas':[56],'Partizanas-GV':[466],'Qarabaq':[561],'Tiki-Taka':[557],'Eksperimentas':[558],'Antracitas':[562],'Ekipažas':[564]};
+  var FT={'Airball agency':[0,'images/airball_agency.jpg'],'MSKR':[0,'images/foto-009.webp'],'Bičiuliai MS':[559,'images/foto-006.webp'],'FK Skipis':[563],'FC WW':[555],'Kampinis':[556],'FC Klynas':[560],'Internacionalas':[56],'Partizanas-GV':[466],'Qarabaq':[561],'Tiki-Taka':[557],'Eksperimentas':[558],'Antracitas':[562],'Ekipažas':[564]};
   var FM=[
     ['2026-12-06','16:01',1,'FK Skipis','Bičiuliai MS'],['2026-12-06','16:42',1,'FC WW','Bičiuliai MS'],
     ['2026-12-13','17:33',2,'Bičiuliai MS','Kampinis'],['2026-12-13','18:13',2,'Bičiuliai MS','FC Klynas'],
@@ -868,6 +870,13 @@ dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
     });
     return box;
   }
+  function frDay(x){
+    var box=el('div','mxd');box.appendChild(el('p','mx-note',x.label));
+    var r=el('div','mx-g'),mm=el('div','mx-m');
+    [x.a,x.b].forEach(function(n,k){if(k){mm.appendChild(el('span','vs','–'))}var w=el('span','mx-t');w.appendChild(flogo(n));w.appendChild(el('span',null,n));mm.appendChild(w)});
+    r.appendChild(el('time',null,x.t));r.appendChild(mm);box.appendChild(r);
+    return box;
+  }
   function show(evs){
     body.textContent='';
     evs.forEach(function(ev,i){
@@ -875,7 +884,7 @@ dialog.sc-dialog{width:min(760px,calc(100vw - 32px))}
       a.style.setProperty('--ev',c[1]);if(i){a.classList.add('sep')}
       a.appendChild(el('span','evtag',c[0]));a.appendChild(el('h3','evt',ev.title));
       [['Data',rng(ev)],['Laikas',ev.time],['Vieta',ev.place]].forEach(function(r){if(r[1]){dl.appendChild(el('dt',null,r[0]));dl.appendChild(el('dd',null,r[1]))}});
-      a.appendChild(dl);if(ev.fut){a.appendChild(futDay(ev.fut))}else if(ev.mix&&window.MIXDAY){a.appendChild(window.MIXDAY(ev.mix))}else{a.appendChild(el('p',null,ev.desc))}
+      a.appendChild(dl);if(ev.fut){a.appendChild(futDay(ev.fut))}else if(ev.mix&&window.MIXDAY){a.appendChild(window.MIXDAY(ev.mix))}else if(ev.fr){a.appendChild(frDay(ev.fr))}else{a.appendChild(el('p',null,ev.desc))}
       var bt=el('div','evbtn');var f=el('a','btn sm','Facebook grupė');f.href='https://www.facebook.com/groups/1352681309700929/';f.target='_blank';f.rel='noopener noreferrer';bt.appendChild(f);if(ev.fut){var mi=el('a','btn sm','Daugiau informacijos');mi.href=FKURL;mi.target='_blank';mi.rel='noopener noreferrer';bt.appendChild(mi);var fl=el('a','btn sm','Susisiekti dėl dalyvavimo');fl.href='#kontaktai';fl.addEventListener('click',function(){dlg.close()});bt.appendChild(fl);a.appendChild(bt);body.appendChild(a);return}if(ev.mix){var sb=el('button','btn sm','Visas tvarkaraštis');sb.type='button';sb.addEventListener('click',function(){dlg.close();if(window.MIXSC){window.MIXSC()}});bt.appendChild(sb)}var l=el('a','btn sm','Susisiekti dėl dalyvavimo');l.href='#kontaktai';l.addEventListener('click',function(){dlg.close()});bt.appendChild(l);a.appendChild(bt);
       body.appendChild(a);
     });
